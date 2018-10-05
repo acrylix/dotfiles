@@ -150,4 +150,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
-
+alias config='/usr/bin/git --git-dir=/Users/kuaiyu/.cfg/ --work-tree=/Users/kuaiyu'
