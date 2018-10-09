@@ -15,18 +15,6 @@ export PATH=$GOPATH/bin:$PATH
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="michael"
-POWERLEVEL9K_MODE="nerdfont-complete"
-
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm node_version)
-
-POWERLEVEL9K_OS_ICON_BACKGROUND="black"
-POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="orange"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -151,3 +139,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 alias config='/usr/bin/git --git-dir=/Users/kuaiyu/.cfg/ --work-tree=/Users/kuaiyu'
+alias f="fzf --height 90% --reverse --preview 'cat {}' --preview-window right:100"
