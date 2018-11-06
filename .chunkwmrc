@@ -144,4 +144,3 @@ chunkc tiling::rule --owner Emacs --except "^$" --state tile &
 chunkc tiling::rule --owner \"Finder\" --state float &
 chunkc tiling::rule --owner \"WeChat\" --desktop 1 --follow-desktop &
 chunkc tiling::rule --owner \"Discord\" --desktop 1 --follow-desktop
-chunkc tiling::rule --owner \"Code\" --desktop 2 --follow-desktop
