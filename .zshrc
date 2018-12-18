@@ -5,16 +5,32 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/kuaiyu/.oh-my-zsh
 
-# Go Path for horizon
 export GOPATH=/Users/kuaiyu/Documents/go
+export PYPATH=/Users/kuaiyu/Library/Python/2.7/
 
-export PATH=$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PYPATH/bin:$PATH
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="michael"
+ZSH_THEME="spaceship"
+SPACESHIP_DIR_TRUNC=2
+SPACESHIP_DIR_COLOR="blue"
+SPACESHIP_GIT_BRANCH_COLOR="yellow"
+SPACESHIP_BATTERY_SHOW="always"
+# SPACESHIP_BATTERY_THRESHOLD=60
+SPACESHIP_DIR_TRUNC_PREFIX="../"
+SPACESHIP_PROMPT_ADD_NEWLINE="false"
+SPACESHIP_CHAR_SYMBOL="\uE0B0 "
+
+SPACESHIP_PROMPT_ORDER=(
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  battery       # Battery level and status
+  line_sep      # Line break
+  char          # Prompt character
+)
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -53,11 +69,14 @@ ZSH_THEME="michael"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# ssh-agent
+zstyle :omz:plugins:ssh-agent identities id_rsa
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm z)
+plugins=(git brew npm z ssh-agent zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +109,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# ETH
 alias geth-rinkeby='geth --networkid=4 --datadir=$HOME/.rinkeby --ethstats='yournode:Respect my authoritah!@stats.rinkeby.io' --rpc --rpcapi db,eth,net,web3,personal --cache=1024  --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "*" --bootnodes=enode://a24ac7c5484ef4ed0c5eb2d36620ba4e4aa13b8c84684e1b4aab0cebea2ae45cb4d375b77eab56516d34bfbd3c1a833fc51296ff084b770b94fb9028c4d25ccf@52.169.42.101:30303';
 
 # ALIASES
@@ -107,7 +125,6 @@ alias a='atom-beta';
 # color ls
 alias ll='ls -lhaG';
 
-#Ethereum
 alias crypto='coinmon';
 
 # GIT stuff
@@ -137,6 +154,11 @@ alias wm_off='brew services stop chunkwm && brew services stop skhd';
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export FZF_DEFAULT_OPS="--extended"
+export CHEATCOLORS=true
+
 alias config='/usr/bin/git --git-dir=/Users/kuaiyu/.cfg/ --work-tree=/Users/kuaiyu'
 alias f="fzf --height 90% --reverse --preview 'cat {}' --preview-window right:100"
+
+eval $(thefuck --alias)
