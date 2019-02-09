@@ -2,7 +2,13 @@ cmd - return : open -na /Applications/iTerm.app
 
 shift + cmd - return : open -n /Applications/Google\ Chrome.app
 # extra shit
-
+ctrl - 0x21 : chunkc tiling::desktop --focus prev 
+ctrl - 0x1E : chunkc tiling::desktop --focus next
+ctrl - 0x12 : chunkc tiling::desktop --focus 1
+ctrl - 0x13 : chunkc tiling::desktop --focus 2
+ctrl - 0x14 : chunkc tiling::desktop --focus 3
+ctrl - 0x15 : chunkc tiling::desktop --focus 4
+ctrl - 0x17 : chunkc tiling::desktop --focus 5
 # close focused window
 alt - w : chunkc tiling::window --close
 
