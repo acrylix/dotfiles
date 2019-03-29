@@ -36,7 +36,8 @@ in
     cool-retro-term
 
 
-    # cli-tools
+    # tools
+    psmisc
     neofetch
     git-lfs
     gotop

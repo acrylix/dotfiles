@@ -31,33 +31,33 @@ floating_minimum_size 300 x 300
 # Colors set from ~/.Xresources
 set_from_resource	$background	background
 set_from_resource	$foreground	foreground
-set_from_resource	$color0		color0
-set_from_resource 	$color1 	color1
-set_from_resource 	$color2 	color2
-set_from_resource 	$color3 	color3
-set_from_resource 	$color4 	color4
-set_from_resource 	$color5 	color5
-set_from_resource 	$color6		color6
-set_from_resource	$color7		color7
-set_from_resource	$color8		color8
-set_from_resource	$color9		color9
-set_from_resource	$color10	color10
-set_from_resource	$color11	color11
-set_from_resource	$color12	color12
-set_from_resource	$color13	color13
-set_from_resource	$color14	color14
-set_from_resource	$color15	color15
+set_from_resource	$color0		  color0
+set_from_resource $color1 	  color1
+set_from_resource $color2 	  color2
+set_from_resource $color3 	  color3
+set_from_resource $color4 	  color4
+set_from_resource $color5 	  color5
+set_from_resource $color6		  color6
+set_from_resource	$color7		  color7
+set_from_resource	$color8		  color8
+set_from_resource	$color9		  color9
+set_from_resource	$color10	  color10
+set_from_resource	$color11	  color11
+set_from_resource	$color12	  color12
+set_from_resource	$color13	  color13
+set_from_resource	$color14	  color14
+set_from_resource	$color15	  color15
 
 # Theme colors
-# class     border  	backgr. 	text    	indic.  	child_border
 # My colors
 client.background	$background
 
-client.focused   	$foreground	$background	$foreground	$color2		$color2	
+# class                 border  	  backgr. 	  text    	  indic.  	child_border
+client.focused   	      $foreground	$background	$foreground	$color2		$color2	
 client.unfocused       	$foreground	$background	$foreground	$color4		$color4
 client.focused_inactive	$foreground	$background	$foreground	$color4		$color4
-client.urgent		$foreground	$background	$foreground	$color4		$color4
-client.placeholder	$foreground	$background	$foreground	$color4		$color4
+client.urgent		        $foreground	$background	$foreground	$color4		$color4
+client.placeholder	    $foreground	$background	$foreground	$color4		$color4
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -70,7 +70,10 @@ client.placeholder	$foreground	$background	$foreground	$color4		$color4
 floating_modifier $mod
 
 # start a terminal
+for_window [class="FloatingTerm"] floating enable
+
 bindsym $mod+Return exec kitty
+bindsym $mod+Mod1+Return exec kitty --class FloatingTerm
 bindsym $mod+Shift+Return exec google-chrome-stable
 
 # kill focused window
@@ -274,5 +277,5 @@ bar {
   position bottom
 }
 
-exec_always --no-startup-id pkill compton && compton -b
+exec_always --no-startup-id killall compton && compton -b
 exec_always --no-startup-id srandrd autorandr -c
