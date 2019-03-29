@@ -32,7 +32,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-   i18n = {
+  i18n = {
      consoleFont = "Lat2-Terminus16";
      consoleKeyMap = "us";
      defaultLocale = "en_US.UTF-8";
@@ -62,10 +62,10 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-    programs.light.enable = true;
+  programs.light.enable = true;
 
   # List services that you want to enable:
-	
+  
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -73,20 +73,20 @@
   networking.firewall.allowedTCPPorts = [ 4001 3000 3001 8000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-   networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
-   sound.enable = true;
-   sound.mediaKeys.enable = true;
-   hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  sound.mediaKeys.enable = true;
+  hardware.pulseaudio.enable = true;
 
-   programs.dconf.enable = true;
-   services.dbus.packages = [pkgs.gnome3.dconf];
+  programs.dconf.enable = true;
+  services.dbus.packages = [pkgs.gnome3.dconf];
 
-   services.postgresql.enable = true;
+  services.postgresql.enable = true;
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -100,62 +100,60 @@
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
-  	services.xserver = {
-		enable = true;
-		dpi = 160;
-		libinput.enable = true;
-		xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";
-      # xkbOptions = "ctrl:swap_lalt_lctl, caps:ctrl_modifier, altwin:swap_lalt_lwin";
+  services.xserver = {
+    enable = true;
+    dpi = 160;
+    libinput.enable = true;
+    # CapsLock = Ctrl
+    # swap left Alt <--> left Super
+    xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";
+    
+    displayManager.gdm = {
+      enable = true;
+    };
 
-		
-		displayManager.gdm = {
-			enable = true;
-		};
+    desktopManager = {
+      default = "none";
+      xterm.enable = false;
+    };
 
-		desktopManager = {
-			default = "none";
-			xterm.enable = false;
-		};
+    windowManager.default = "i3";
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+    };
+  };
 
-		windowManager.default = "i3";
-		windowManager.i3 = {
-			enable = true;
-			package = pkgs.i3-gaps;
-		};
-	};
+  fonts.fontconfig.dpi = 160;
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    wqy_microhei
+    wqy_zenhei
+    fira-code
+    siji
+    font-awesome_5
+    unifont
+  ];
 
-	fonts.fontconfig.dpi = 160;
-
-	fonts.fonts = with pkgs; [
-		noto-fonts
-		noto-fonts-cjk
-		noto-fonts-emoji
-		liberation_ttf
-		wqy_microhei
-		wqy_zenhei
-		fira-code
-		siji
-		font-awesome_5
-		unifont
-	];
-
-	services.compton.enable = true;
+  services.compton.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.michael = {
-     isNormalUser = true;
-     home = "/home/michael";
-     description = "Michael Yu";
-     uid = 1000;
-     shell = pkgs.zsh;
-     extraGroups = [ "wheel" "networkmanager" "sudoers" "disk"];
-   };
+  users.users.michael = {
+    isNormalUser = true;
+    home = "/home/michael";
+    description = "Michael Yu";
+    uid = 1000;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk"];
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "18.09"; # Did you read the comment?
-
 }
