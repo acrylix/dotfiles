@@ -24,8 +24,7 @@
     fcitx
     fcitx-configtool
 
-    pmutils
-    systemd
+    udev
 
     # rice
     lxappearance
@@ -43,7 +42,6 @@
     wirelesstools
     pavucontrol
     thefuck
-    autorandr
 
     # image/video
     scrot
@@ -72,6 +70,7 @@
 
   programs.zsh = import ./zsh.nix pkgs;
   services.dunst = import ./dunst.nix pkgs;
+  programs.autorandr = import ./autorandr.nix pkgs;
 
   programs.git = {
       enable = true;

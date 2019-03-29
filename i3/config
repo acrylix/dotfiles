@@ -232,7 +232,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym XF86Tools exec --no-startup-id autorandr --change
+bindsym XF86Tools exec --no-startup-id autorandr -c
 
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
@@ -275,3 +275,4 @@ bar {
 
 exec_always --no-startup-id pkill compton && compton -b
 exec_always --no-startup-id source ~/.fehbg
+exec_always --no-startup-id autorandr -c
