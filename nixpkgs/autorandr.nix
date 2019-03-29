@@ -2,8 +2,8 @@
 {
   enable = true;
   hooks.postswitch = {
-    i3reload = "i3-msg reload";
-    comptonreload = "pkill compton && compton -b"; 
+    workspace-shake = "i3-msg '[workspace=7] move workspace to output DP1;'"; 
+    i3-restart = "i3-msg restart";
   };
   profiles = {
     "home" = {

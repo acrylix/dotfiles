@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  srandrd = import ./srandrd;
+in
 {
   # Let Home Manager install and manage itself.
   programs.home-manager = {
@@ -23,14 +26,15 @@
     xorg.xbacklight
     fcitx
     fcitx-configtool
-
-    udev
+    srandrd
 
     # rice
     lxappearance
     deepin.deepin-gtk-theme
     capitaine-cursors
     powerline-fonts
+    cool-retro-term
+
 
     # cli-tools
     neofetch
