@@ -63,6 +63,8 @@ in
     arandr
   ];
 
+  services.compton.enable = true;
+
   programs.firefox = {
     enable = true;
     enableIcedTea = true;

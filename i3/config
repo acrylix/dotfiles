@@ -84,15 +84,9 @@ bindsym $mod+Shift+Return exec google-chrome-stable
 # kill focused windwow except scratchpad
 bindsym $mod+q [con_id="__focused__" class="^(?!dropdown|repl).*$"] kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+space exec dmenu_run
-
+# start rofi (a program launcher)
 bindsym Mod1+space exec --no-startup-id rofi -show run
 bindsym $mod+Tab exec --no-startup-id rofi -show window
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #   i
 # j k l
@@ -136,7 +130,7 @@ bindsym $mod+s layout tabbed
 bindsym $mod+d layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+t floating toggle
+bindsym $mod+t [con_id="__focused__" class="^(?!dropdown|repl).*$"] floating toggle, resize set 1500 1000, move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
