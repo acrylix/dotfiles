@@ -22,7 +22,12 @@ font pango:monospace 8
 # Gaps
 
 for_window [class="^.*"] border pixel 3
-gaps inner 8
+gaps inner 12
+smart_gaps on
+smart_borders on
+
+bindsym $mod+plus gaps inner current minus 5
+bindsym $mod+minus  gaps inner current plus 5
 
 #client.focused    #4c7899 #285577 #ffffff #2e9ef4   #e67e22
 
@@ -76,8 +81,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Mod1+Return exec kitty --class FloatingTerm
 bindsym $mod+Shift+Return exec google-chrome-stable
 
-# kill focused window
-bindsym $mod+q kill
+# kill focused windwow except scratchpad
+bindsym $mod+q [con_id="__focused__" class="^(?!dropdown|repl).*$"] kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec dmenu_run
@@ -247,6 +252,22 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 bindsym $mod+Escape exec --no-startup-id $HOME/.config/scripts/lock.sh
 
 bindsym $mod+m bar mode toggle
+
+# scratchpad
+for_window[class="dropdown"] floating enable
+for_window[class="dropdown"] resize set 1000 700
+for_window[class="dropdown"] move scratchpad
+for_window[class="dropdown"] border pixel 1
+bindsym $mod+u [class="dropdown"] scratchpad show, [class="dropdown"] move position center
+exec --no-startup-id kitty --class dropdown -o font_size=15
+
+# node repl
+for_window[class="repl"] floating enable
+for_window[class="repl"] resize set 1500 300
+for_window[class="repl"] move scratchpad
+for_window[class="repl"] border pixel 7
+bindsym $mod+o [class="repl"] scratchpad show, [class="repl"] move position center
+exec --no-startup-id kitty --class repl -o font_size=30 -e node
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

@@ -4,7 +4,6 @@ let
   srandrd = import ./srandrd;
 in
 {
-  # Let Home Manager install and manage itself.
   programs.home-manager = {
     enable = true;
     path = "/home/michael/.home-manager";
@@ -27,6 +26,7 @@ in
     fcitx
     fcitx-configtool
     srandrd
+    powertop
 
     # rice
     lxappearance
@@ -34,7 +34,6 @@ in
     capitaine-cursors
     powerline-fonts
     cool-retro-term
-
 
     # tools
     psmisc
@@ -60,6 +59,7 @@ in
     discord
     screenkey
     blueman
+    minitube
     arandr
   ];
 
@@ -83,5 +83,4 @@ in
       userName = "Michael Yu";
       userEmail = "1619025+acrylix@users.noreply.github.com";
     };
-
 }
