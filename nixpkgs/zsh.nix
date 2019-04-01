@@ -14,6 +14,7 @@
         chrome = "google-chrome-stable";
     };
     initExtra = ''
+        (cat ~/.cache/wal/sequences &)
 
         ####path####
         export GOPATH="/home/michael/go"

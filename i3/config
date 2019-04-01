@@ -72,7 +72,10 @@ client.placeholder	    $foreground	$background	$foreground	$color4		$color4
 # font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier Control
+
+# chrome urgent autofocus
+focus_on_window_activation focus
 
 # start a terminal
 for_window [class="FloatingTerm"] floating enable
@@ -146,13 +149,13 @@ bindsym $mod+Shift+space focus mode_toggle
 set $ws1 "1 "
 set $ws2 "2 "
 set $ws3 "3 "
-set $ws4 "4 "
+set $ws4 "4 "
 set $ws5 "5 "
 set $ws6 "6 "
-set $ws7 "7 "
+set $ws7 "7 "
 set $ws8 "8 "
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9 "
+set $ws10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -233,8 +236,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym XF86Tools exec --no-startup-id source ~/.config/scripts/random-bg.sh
+bindsym XF86Tools exec --no-startup-id wal -i ~/Pictures/wal/cyberpunk/
 bindsym Display exec --no-startup-id autorandr -c
+
+bindsym $mod+e exec nautilus
 
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
@@ -273,11 +278,11 @@ bar {
     sensors  \
     disk  \
     brightness  \
-    amixer  \
-    bluetooth \
-    nic \
-    date  \
     time  \
+    date  \
+    nic \
+    bluetooth \
+    amixer  \
     battery \
     -p \
     battery.warning="50" \
@@ -287,7 +292,7 @@ bar {
     time.format="%I:%M %p" \
     date.format="%b %d" \
     disk.format="{path}: {left}" \
-    -t gruvbox-powerline
+    -t iceberg-powerline
     
   position bottom
 }

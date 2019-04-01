@@ -34,6 +34,7 @@ in
     capitaine-cursors
     powerline-fonts
     cool-retro-term
+    pywal
 
     # tools
     psmisc
@@ -46,6 +47,7 @@ in
     wirelesstools
     pavucontrol
     thefuck
+    imagemagick
 
     # image/video
     scrot
@@ -61,9 +63,12 @@ in
     blueman
     minitube
     arandr
+    anki
   ];
 
-  services.compton.enable = true;
+  services.compton = {
+    enable = true;
+  };
 
   programs.firefox = {
     enable = true;

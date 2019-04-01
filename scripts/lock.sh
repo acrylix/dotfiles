@@ -1,5 +1,4 @@
 TMPBG=/tmp/screen.png
-LOCK=$HOME/Pictures/padlock.png
 
 # get current res (supports multi monitor)
 RES=$( xrandr | sed 's/,/\n/g' | sed -n -e 's/^.*current //p' | sed -e "s/ //g")
@@ -8,12 +7,11 @@ RES=$( xrandr | sed 's/,/\n/g' | sed -n -e 's/^.*current //p' | sed -e "s/ //g")
 ffmpeg -f x11grab -video_size $RES -y -i $DISPLAY \
     -filter_complex "boxblur=10:5" -vframes 1 $TMPBG
         
-
 font="hack"
 B='#00000000'  # blank
-C='#ffffff22'  # clear ish
-D='#95a5a6ff'  # default
-T='#2ecc71ff'  # text
+C='#badc58ff'  # clear ish
+D='#95afc0ff'  # default
+T='#6ab04cff'  # text
 W='#e74c3cff'  # wrong
 V='#2ecc71ff'  # verifying
 
@@ -24,6 +22,7 @@ i3lock-color \
 --timepos='x+(w/2):y+(h/2)' \
 --datepos='x+(w/2):y+(h/2)+50' \
 --timesize=80 \
+--datesize=30 \
 --veriftext='' --wrongtext='' \
 --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" \
 --insidevercolor=$C   \
