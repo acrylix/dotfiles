@@ -60,11 +60,14 @@ in
     tdesktop
     discord
     screenkey
-    blueman
     minitube
     arandr
     anki
   ];
+
+  services.blueman-applet ={
+    enable = true;
+  };
 
   services.compton = {
     enable = true;

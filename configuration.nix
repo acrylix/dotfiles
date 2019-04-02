@@ -52,6 +52,7 @@
     git
     gnumake
     kitty
+    blueman
 
     gnome3.nautilus
   ];
@@ -81,10 +82,13 @@
   # Enable sound.
   sound.enable = true;
   sound.mediaKeys.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };
 
   programs.dconf.enable = true;
-  services.dbus.packages = [pkgs.gnome3.dconf];
+  services.dbus.packages = [ pkgs.gnome3.dconf pkgs.blueman ];
 
   services.postgresql.enable = true;
 
@@ -103,7 +107,10 @@
   services.xserver = {
     enable = true;
     dpi = 160;
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      accelSpeed = "0.3";
+    };
     # CapsLock = Ctrl
     # swap left Alt <--> left Super
     xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";
