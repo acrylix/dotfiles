@@ -37,7 +37,7 @@
           enable = true;
           primary = true;
           mode = "2560x1440";
-          position = "688x2160";
+          position = "720x2304";
           rate = "60.01";
         };
         DP1 = {

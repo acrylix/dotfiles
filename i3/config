@@ -72,7 +72,7 @@ client.placeholder	    $foreground	$background	$foreground	$color4		$color4
 # font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier Control
+floating_modifier $mod
 
 # chrome urgent autofocus
 focus_on_window_activation focus
