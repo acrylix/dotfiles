@@ -58,7 +58,7 @@ set_from_resource	$color15	  color15
 client.background	$background
 
 # class                 border  	  backgr. 	  text    	  indic.  	child_border
-client.focused   	      $foreground	$background	$foreground	$color2		$color2	
+client.focused   	      $foreground	$background	$foreground	#f0932b		#f0932b	
 client.unfocused       	$foreground	$background	$foreground	$color4		$color4
 client.focused_inactive	$foreground	$background	$foreground	$color4		$color4
 client.urgent		        $foreground	$background	$foreground	$color4		$color4
@@ -275,14 +275,13 @@ bar {
 
   font pango:Hack 10
   status_command ~/.config/i3/bumblebee-status/bumblebee-status -m \
-    sensors  \
-    disk  \
-    brightness  \
+    sensors2  \
     time  \
     date  \
+    disk  \
     nic \
-    bluetooth \
     amixer  \
+    brightness  \
     battery \
     -p \
     battery.warning="50" \
@@ -290,12 +289,20 @@ bar {
     nic.exclude="enp,lo" \
     nic.format="{ssid} {ip}" \
     time.format="%I:%M %p" \
-    date.format="%b %d" \
+    date.format="%a %b %d" \
     disk.format="{path}: {left}" \
     -t iceberg-powerline
     
   position bottom
+
+  colors {
+    # class             border  backgr. text indicator
+    focused_workspace   #ffffff #4b6584 #d1d8e0
+    active_workspace    #000000 #444444 #718093
+    inactive_workspace  #000000 #000000 #718093
+    urgent_workspace    #ff6b81 #000000 #ff6b81
+  }
 }
 
-exec_always --no-startup-id killall compton && compton -b
+# exec_always --no-startup-id killall compton && compton -b
 exec_always --no-startup-id srandrd autorandr -c

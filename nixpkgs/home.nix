@@ -70,7 +70,7 @@ in
   };
 
   services.compton = {
-    enable = true;
+    enable = false;
   };
 
   programs.firefox = {
