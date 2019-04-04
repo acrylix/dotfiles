@@ -107,10 +107,7 @@
   services.xserver = {
     enable = true;
     dpi = 160;
-    libinput = {
-      enable = true;
-      accelSpeed = "0.3";
-    };
+    libinput.enable = true;
     # CapsLock = Ctrl
     # swap left Alt <--> left Super
     xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";

@@ -10,7 +10,6 @@
     };
     shellAliases={
         open = "xdg-open";
-        discord = "i3-msg 'workspace number 1; exec Discord'";
         chrome = "google-chrome-stable";
     };
     initExtra = ''

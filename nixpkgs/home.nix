@@ -27,7 +27,8 @@ in
     fcitx-configtool
     srandrd
     powertop
-
+    lsof
+    
     # rice
     lxappearance
     deepin.deepin-gtk-theme
@@ -60,9 +61,7 @@ in
     tdesktop
     discord
     screenkey
-    minitube
     arandr
-    anki
   ];
 
   services.blueman-applet ={
