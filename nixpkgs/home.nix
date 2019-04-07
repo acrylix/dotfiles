@@ -53,7 +53,7 @@ in
     # image/video
     scrot
     ffmpeg
-    libsForQt5.vlc
+    vlc
 
     # applications
     gnome3.dconf-editor

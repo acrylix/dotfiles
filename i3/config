@@ -133,7 +133,7 @@ bindsym $mod+s layout tabbed
 bindsym $mod+d layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+t [con_id="__focused__" class="^(?!dropdown|repl).*$"] floating toggle, resize set 1500 1000, move position center
+bindsym $mod+t [con_id="__focused__" class="^(?!dropdown|repl).*$"] floating toggle, resize set 2000 1500, move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
@@ -236,7 +236,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym XF86Tools exec --no-startup-id wal -i ~/Pictures/wal/cyberpunk/
+bindsym XF86Tools exec --no-startup-id wal -i ~/Pictures/wal/cyberpunk/ && i3-msg restart
 bindsym Display exec --no-startup-id autorandr -c
 
 bindsym $mod+e exec nautilus
@@ -248,7 +248,7 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 
 # Lock
 
-bindsym $mod+Escape exec --no-startup-id $HOME/.config/scripts/lock.sh
+bindsym $mod+Escape exec --no-startup-id ~/.config/scripts/lock.sh
 
 bindsym $mod+m bar mode toggle
 
@@ -284,22 +284,24 @@ bar {
     brightness  \
     battery \
     -p \
-    battery.warning="50" \
+    battery.warning="30" \
     battery.critical="20" \
     nic.exclude="enp,lo" \
     nic.format="{ssid} {ip}" \
     time.format="%I:%M %p" \
     date.format="%a %b %d" \
     disk.format="{path}: {left}" \
-    -t iceberg-powerline
+    -t wal-powerline
     
   position bottom
 
+
   colors {
+    background $background
     # class             border  backgr. text indicator
-    focused_workspace   #ffffff #4b6584 #d1d8e0
-    active_workspace    #000000 #444444 #718093
-    inactive_workspace  #000000 #000000 #718093
+    focused_workspace   $foreground $color2 $foreground
+    active_workspace    #000000 #444444 $foreground
+    inactive_workspace  #000000 #000000 $foreground
     urgent_workspace    #ff6b81 #000000 #ff6b81
   }
 }

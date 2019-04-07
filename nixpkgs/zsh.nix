@@ -11,6 +11,7 @@
     shellAliases={
         open = "xdg-open";
         chrome = "google-chrome-stable";
+        cfg = "code ~/.config/nixpkgs/";
     };
     initExtra = ''
         (cat ~/.cache/wal/sequences &)
