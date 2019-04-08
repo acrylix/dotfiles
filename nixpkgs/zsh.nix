@@ -12,6 +12,7 @@
         open = "xdg-open";
         chrome = "google-chrome-stable";
         cfg = "code ~/.config/nixpkgs/";
+        d = "ddgr -n 5";
     };
     initExtra = ''
         (cat ~/.cache/wal/sequences &)

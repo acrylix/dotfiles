@@ -48,6 +48,7 @@ in
     wirelesstools
     pavucontrol
     thefuck
+    ddgr
     imagemagick
 
     # image/video

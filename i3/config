@@ -133,7 +133,7 @@ bindsym $mod+s layout tabbed
 bindsym $mod+d layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+t [con_id="__focused__" class="^(?!dropdown|repl).*$"] floating toggle, resize set 2000 1500, move position center
+bindsym $mod+t [con_id="__focused__" class="^(?!dropdown|repl).*$"] floating toggle, resize set 1600 1200, move position center
 
 # change focus between tiling / floating windows
 bindsym $mod+Shift+space focus mode_toggle
@@ -243,6 +243,8 @@ bindsym $mod+e exec nautilus
 
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -A 10
 
 bindsym Print exec --no-startup-id gnome-screenshot -i
 
@@ -290,7 +292,7 @@ bar {
     nic.format="{ssid} {ip}" \
     time.format="%I:%M %p" \
     date.format="%a %b %d" \
-    disk.format="{path}: {left}" \
+    disk.format="{left}" \
     -t wal-powerline
     
   position bottom
@@ -301,7 +303,7 @@ bar {
     # class             border  backgr. text indicator
     focused_workspace   $foreground $color2 $foreground
     active_workspace    #000000 #444444 $foreground
-    inactive_workspace  #000000 #000000 $foreground
+    inactive_workspace  $background $background $foreground
     urgent_workspace    #ff6b81 #000000 #ff6b81
   }
 }
