@@ -26,7 +26,7 @@
       icon = "";
     };
     urgency_normal = {
-      background = "#c7ecee";
+      background = "#bdc3c7";
       foreground = "#2c3e50";
       timeout = 5;
       icon = "";
