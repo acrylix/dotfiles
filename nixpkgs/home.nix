@@ -14,7 +14,6 @@ in
   home.packages = with pkgs; [
 
     # system
-    go
     gcc
     acpi
     rofi
@@ -38,6 +37,7 @@ in
     pywal
 
     # tools
+    appimage-run
     psmisc
     neofetch
     git-lfs

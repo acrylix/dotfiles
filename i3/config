@@ -9,7 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+# master mod is currently Alt
+set $mod Mod1 
+# caps lock & left of space is ctrl
+set $mod2 Control
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -78,14 +81,14 @@ floating_modifier $mod
 focus_on_window_activation focus
 
 # start a terminal
-for_window [class="FloatingTerm"] floating enable
+for_window [class="FloatingTerm"] floating enable, resize set 800 600, move position center
 
-bindsym $mod+Return exec kitty
-bindsym $mod+Mod1+Return exec kitty --class FloatingTerm
-bindsym $mod+Shift+Return exec google-chrome-stable
+bindsym $mod2+Return exec kitty
+bindsym $mod2+Mod1+Return exec kitty --class FloatingTerm
+bindsym $mod2+Shift+Return exec google-chrome-stable
 
 # kill focused windwow except scratchpad
-bindsym $mod+q [con_id="__focused__" class="^(?!dropdown|repl).*$"] kill
+bindsym $mod2+q [con_id="__focused__" class="^(?!dropdown|repl).*$"] kill
 
 # start rofi (a program launcher)
 bindsym Mod1+space exec --no-startup-id rofi -show run
@@ -101,10 +104,10 @@ bindsym $mod+i focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move left 100px
@@ -170,20 +173,22 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # switch workspace sequential
-bindsym Control+bracketleft workspace prev
-bindsym Control+bracketright workspace next
+bindsym $mod2+bracketleft workspace prev
+bindsym $mod2+bracketright workspace next
 
 # move container to neighbours
-bindsym Control+Shift+bracketleft move container to workspace prev, workspace prev
-bindsym Control+Shift+bracketright move container to workspace next, workspace next
+bindsym $mod+Shift+bracketleft move container to workspace prev, workspace prev
+bindsym $mod+Shift+bracketright move container to workspace next, workspace next
 
 # move workspae to monitor
 bindsym $mod+Control+i move workspace to output up
 bindsym $mod+Control+k move workspace to output down
+bindsym $mod+Control+j move workspace to output left
+bindsym $mod+Control+l move workspace to output right
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
@@ -250,15 +255,15 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 
 # Lock
 
-bindsym $mod+Escape exec --no-startup-id ~/.config/scripts/lock.sh
+bindsym $mod2+Escape exec --no-startup-id ~/.config/scripts/lock.sh
 
 bindsym $mod+m bar mode toggle
 
 # scratchpad
 for_window[class="dropdown"] floating enable
-for_window[class="dropdown"] resize set 1000 700
+for_window[class="dropdown"] resize set 1200 600
 for_window[class="dropdown"] move scratchpad
-for_window[class="dropdown"] border pixel 1
+for_window[class="dropdown"] border pixel 7
 bindsym $mod+u [class="dropdown"] scratchpad show, [class="dropdown"] move position center
 exec --no-startup-id kitty --class dropdown -o font_size=15
 
@@ -269,6 +274,9 @@ for_window[class="repl"] move scratchpad
 for_window[class="repl"] border pixel 7
 bindsym $mod+o [class="repl"] scratchpad show, [class="repl"] move position center
 exec --no-startup-id kitty --class repl -o font_size=30 -e node
+
+# code on big screen
+workspace $ws10 output DP1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

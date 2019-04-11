@@ -13,6 +13,7 @@
         chrome = "google-chrome-stable";
         cfg = "code ~/.config/nixpkgs/";
         d = "ddgr -n 5";
+        define = "d -n 1 define";
     };
     initExtra = ''
         (cat ~/.cache/wal/sequences &)

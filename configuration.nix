@@ -113,7 +113,11 @@
     };
     # CapsLock = Ctrl
     # swap left Alt <--> left Super
-    xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";
+    # xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";
+
+    # CapsLock = Ctrl
+    # [Super] [Alt] [Ctrl]
+    xkbOptions = "ctrl:swap_lalt_lctl_lwin, ctrl:nocaps";
     
     displayManager.gdm = {
       enable = true;
