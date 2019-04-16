@@ -67,7 +67,7 @@ in
     discord
     screenkey
     arandr
-
+    spaceFM
   ];
 
   services.blueman-applet ={
