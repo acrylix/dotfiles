@@ -21,6 +21,7 @@ in
     libnotify
     lm_sensors
     i3lock-color
+    i3lock-pixeled
     xorg.xbacklight
     fcitx
     fcitx-configtool
@@ -50,11 +51,13 @@ in
     thefuck
     ddgr
     imagemagick
+    ranger
 
-    # image/video
+    # image/audio/video
     scrot
     ffmpeg
     vlc
+    cava
 
     # applications
     gnome3.dconf-editor
@@ -64,6 +67,7 @@ in
     discord
     screenkey
     arandr
+
   ];
 
   services.blueman-applet ={

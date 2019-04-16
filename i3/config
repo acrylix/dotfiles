@@ -260,6 +260,7 @@ bindsym Print exec --no-startup-id gnome-screenshot -i
 # Lock
 
 bindsym $mod2+Delete exec --no-startup-id ~/.config/scripts/lock.sh
+bindsym $mod+Delete exec --no-startup-id i3lock-pixeled
 
 bindsym $mod+m bar mode toggle
 
@@ -280,8 +281,8 @@ bindsym $mod+o [class="repl"] scratchpad show, [class="repl"] move position cent
 exec --no-startup-id kitty --class repl -o font_size=30 -e node
 
 # code on big screen
-workspace $ws10 output DP1
-workspace $ws9 output DP1
+workspace $ws10 output DP-1
+workspace $ws9 output DP-1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -294,13 +295,13 @@ bar {
     disk  \
     nic \
     brightness  \
+    amixer  \
     time  \
     date  \
-    amixer  \
     battery \
     -p \
-    battery.warning="30" \
-    battery.critical="20" \
+    battery.warning="50" \
+    battery.critical="30" \
     nic.exclude="enp,lo" \
     nic.format="{ssid} {ip}" \
     time.format="%I:%M %p" \

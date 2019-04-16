@@ -157,7 +157,7 @@
     description = "Michael Yu";
     uid = 1000;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk"];
+    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video"];
   };
 
   # This value determines the NixOS release with which your system is to be
