@@ -52,6 +52,7 @@ in
     ddgr
     imagemagick
     ranger
+    docker
 
     # image/audio/video
     scrot

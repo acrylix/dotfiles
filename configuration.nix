@@ -91,6 +91,7 @@
   services.dbus.packages = [ pkgs.gnome3.dconf pkgs.blueman ];
 
   services.postgresql.enable = true;
+  virtualisation.docker.enable = true;
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -157,7 +158,7 @@
     description = "Michael Yu";
     uid = 1000;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video"];
+    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video" "docker"];
   };
 
   # This value determines the NixOS release with which your system is to be
