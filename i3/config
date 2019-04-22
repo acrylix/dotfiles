@@ -80,6 +80,9 @@ floating_modifier $mod
 # chrome urgent autofocus
 focus_on_window_activation focus
 
+# float metamask window by default, so it doesn't destry my tiles
+for_window [title="MetaMask Notification"] floating enable border pixel
+
 # start a terminal
 for_window [class="FloatingTerm"] floating enable, resize set 800 600, move position center
 

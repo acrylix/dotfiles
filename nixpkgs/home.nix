@@ -32,6 +32,7 @@ in
     # rice
     lxappearance
     deepin.deepin-gtk-theme
+    breeze-gtk
     capitaine-cursors
     powerline-fonts
     cool-retro-term
@@ -69,6 +70,8 @@ in
     screenkey
     arandr
     spaceFM
+    speedtest-cli
+    gnome3.pomodoro
   ];
 
   services.blueman-applet ={

@@ -151,6 +151,10 @@
     unifont
   ];
 
+  environment.variables = {
+    EDITOR="vim";
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.michael = {
     isNormalUser = true;
