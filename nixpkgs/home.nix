@@ -69,10 +69,8 @@ in
     discord
     screenkey
     arandr
-    spaceFM
     speedtest-cli
     gnome3.pomodoro
-    pgadmin
   ];
 
   services.blueman-applet ={

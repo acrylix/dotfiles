@@ -294,8 +294,8 @@ bar {
     nic \
     brightness  \
     amixer  \
-    time  \
     date  \
+    time  \
     battery \
     -p \
     sensors2.showcpu="false" \

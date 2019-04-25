@@ -129,8 +129,10 @@
     };
 
     desktopManager = {
-      default = "none";
+      default = "none+i3";
       xterm.enable = false;
+      gnome3.enable = true;
+      plasma5.enable = true;
     };
 
     windowManager.default = "i3";
