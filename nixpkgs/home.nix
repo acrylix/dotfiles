@@ -72,6 +72,7 @@ in
     spaceFM
     speedtest-cli
     gnome3.pomodoro
+    pgadmin
   ];
 
   services.blueman-applet ={

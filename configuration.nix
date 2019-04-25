@@ -90,7 +90,11 @@
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf pkgs.blueman ];
 
-  services.postgresql.enable = true;
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_11;
+  };
+  
   virtualisation.docker.enable = true;
 
   # Enable the X11 windowing system.
