@@ -62,8 +62,8 @@ client.background $background
 
 # class                 border      backgr.     text        indic.    child_border
 client.focused          $foreground $background $foreground #f0932b   #f0932b 
-client.unfocused        $foreground $background $foreground $color4   $color4
-client.focused_inactive $foreground $background $foreground $color4   $color4
+client.unfocused        $foreground $background $foreground #2f3640   #2f3640
+client.focused_inactive $foreground $background $foreground #2f3640   #2f3640
 client.urgent           $foreground $background $foreground $color4   $color4
 client.placeholder      $foreground $background $foreground $color4   $color4
 
@@ -80,8 +80,8 @@ floating_modifier $mod
 # chrome urgent autofocus
 focus_on_window_activation focus
 
-# float metamask window by default, so it doesn't destry my tiles
-for_window [title="MetaMask Notification"] floating enable border pixel 0, move position center
+# automatically flow these windows
+for_window [window_role="pop-up|menu|dialog"] floating enable border pixel 1, move position center
 
 # start a terminal
 for_window [class="FloatingTerm"] floating enable, resize set 800 600, move position center
@@ -200,7 +200,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -231,7 +231,7 @@ bindsym $mod+r mode "resize"
 
 # Thinkpad Extras
 
-bindsym XF86Tools exec --no-startup-id wal --iterative -i ~/Pictures/wal/cyberpunk/ && i3-msg restart
+bindsym XF86Tools exec --no-startup-id wal --iterative -i ~/Pictures/wal/cyberpunk/ # && i3-msg restart
 bindsym Display exec --no-startup-id autorandr -c
 
 ## Volume Control
@@ -287,9 +287,9 @@ bar {
 
   font pango:Hack 10
   status_command ~/.config/i3/bumblebee-status/bumblebee-status -m \
+    memory \
     cpu \
     sensors2  \
-    memory \
     disk  \
     nic \
     brightness  \
@@ -323,5 +323,4 @@ bar {
   }
 }
 
-# exec_always --no-startup-id killall compton && compton -b
-exec_always --no-startup-id srandrd autorandr -c
+exec --no-startup-id srandrd autorandr -c
