@@ -19,6 +19,10 @@
   # hardware?
   hardware.enableAllFirmware = true;  
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.extraConfig = "
+    [General]
+    Enable=Source,Sink,Media,Socket
+  ";
   
   # battery saver auto tune
   powerManagement.powertop.enable = true;
@@ -84,6 +88,7 @@
   sound.mediaKeys.enable = true;
   hardware.pulseaudio = {
     enable = true;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
     package = pkgs.pulseaudioFull;
   };
 
