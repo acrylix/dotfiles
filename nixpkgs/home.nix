@@ -12,7 +12,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-
     # system
     gcc
     acpi
@@ -60,17 +59,20 @@ in
     ffmpeg
     vlc
     cava
-
+    simplescreenrecorder
+    
     # applications
     gnome3.dconf-editor
     gnome3.gnome-screenshot	
+    lxqt.screengrab
     libreoffice
     tdesktop
     discord
     screenkey
     arandr
     speedtest-cli
-    gnome3.pomodoro
+    insomnia
+    spotify
   ];
 
   services.blueman-applet ={

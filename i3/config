@@ -25,7 +25,7 @@ font pango:monospace 8
 # Gaps
 
 for_window [class="^.*"] border pixel 3
-gaps inner 12
+gaps inner 10
 smart_gaps on
 smart_borders on
 
@@ -82,6 +82,8 @@ focus_on_window_activation focus
 
 # automatically flow these windows
 for_window [window_role="pop-up|menu|dialog"] floating enable border pixel 1, move position center
+
+for_window [title="^DevTools.*$"] floating disable
 
 # start a terminal
 for_window [class="FloatingTerm"] floating enable, resize set 800 600, move position center
@@ -232,7 +234,7 @@ bindsym $mod+r mode "resize"
 # Thinkpad Extras
 
 bindsym XF86Tools exec --no-startup-id wal --iterative -i ~/Pictures/wal/cyberpunk/ # && i3-msg restart
-bindsym Display exec --no-startup-id autorandr -c
+bindsym XF86Display exec --no-startup-id i3-msg restart
 
 ## Volume Control
 set $volumepath ~/.config/i3/i3-volume
@@ -251,7 +253,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -A 10
 
-bindsym Print exec --no-startup-id gnome-screenshot -i
+# bindsym Print exec --no-startup-id gnome-screenshot -i
+bindsym Print exec --no-startup-id screengrab -r
 
 # Lock
 
@@ -264,17 +267,9 @@ bindsym $mod+m bar mode toggle
 for_window[class="dropdown"] floating enable
 for_window[class="dropdown"] resize set 1200 600
 for_window[class="dropdown"] move scratchpad
-for_window[class="dropdown"] border pixel 7
+for_window[class="dropdown"] border pixel 2
 bindsym $mod+u [class="dropdown"] scratchpad show, [class="dropdown"] move position center
-exec --no-startup-id kitty --class dropdown -o font_size=15
-
-# node repl
-for_window[class="repl"] floating enable
-for_window[class="repl"] resize set 1500 300
-for_window[class="repl"] move scratchpad
-for_window[class="repl"] border pixel 7
-bindsym $mod+o [class="repl"] scratchpad show, [class="repl"] move position center
-exec --no-startup-id kitty --class repl -o font_size=30 -e node
+exec --no-startup-id kitty --class dropdown -o font_size=13
 
 # code on big screen
 workspace $ws10 output DP-1

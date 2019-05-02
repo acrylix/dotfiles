@@ -6,12 +6,15 @@ RES=$( xrandr | sed 's/,/\n/g' | sed -n -e 's/^.*current //p' | sed -e "s/ //g")
 # grab and blur
 ffmpeg -f x11grab -video_size $RES -y -i $DISPLAY \
     -filter_complex "boxblur=10:5" -vframes 1 $TMPBG
+
+FG=$(awk '/color3:(.*)/ { print $2 }' < ~/.Xresources)
+FF=$FG"ff"
         
 font="hack"
 B='#00000000'  # blank
 C='#badc58ff'  # clear ish
 D='#95afc0ff'  # default
-T='#6ab04cff'  # text
+T=$FF  # text
 W='#e74c3cff'  # wrong
 V='#2ecc71ff'  # verifying
 
