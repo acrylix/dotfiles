@@ -73,6 +73,7 @@ in
     speedtest-cli
     insomnia
     spotify
+    playerctl
   ];
 
   services.blueman-applet ={
