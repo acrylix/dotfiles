@@ -285,7 +285,7 @@ workspace $ws9 output DP-1
 bar {
   #status_command i3status
 
-  font pango:Hack 10
+  font pango:Hack 9
   status_command ~/.config/i3/bumblebee-status/bumblebee-status -m \
     spotify \
     memory \
@@ -307,7 +307,7 @@ bar {
     nic.exclude="enp,lo,docker" \
     nic.format="{ssid} {ip}" \
     time.format="%I:%M %p" \
-    date.format="%a %b %d" \
+    date.format="%A %b %d" \
     disk.format="{left}" \
     spotify.previous="MIDDLE_CLICK" \
     spotify.next="RIGHT_CLICK" \

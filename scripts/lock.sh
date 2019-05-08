@@ -1,3 +1,7 @@
+# pause music + etc
+playerctl -p spotify pause
+
+# start making blur img
 TMPBG=/tmp/screen.png
 
 # get current res (supports multi monitor)
@@ -52,3 +56,4 @@ i3lock-color \
 --indicator           \
 --timestr="%I:%M:%S %p"  \
 --datestr="%A %b %d %Y"
+

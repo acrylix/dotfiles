@@ -16,7 +16,11 @@ in
     gcc
     acpi
     rofi
-    dunst
+    
+    (dunst.override {
+      dunstify = true;
+    })
+    
     libnotify
     lm_sensors
     i3lock-color
