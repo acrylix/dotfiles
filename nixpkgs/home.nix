@@ -54,6 +54,7 @@ in
     pavucontrol
     thefuck
     ddgr
+    baobab
     imagemagick
     ranger
     docker
@@ -64,6 +65,7 @@ in
     vlc
     cava
     simplescreenrecorder
+    krita
     
     # applications
     gnome3.dconf-editor

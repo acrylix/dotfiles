@@ -5,9 +5,11 @@
   settings = {
     global = {
       geometry = "500x80-20+20";
-      transparency = 10;
-      separator_height = 10;
-      padding = 20;
+      transparency = 50;
+      separator_height = 0;
+      separator_color = "auto";
+      notification_height = 20;
+      padding = 30;
       horizontal_padding = 20;
       font = "Fira Code 10";
       format = "<b>%s</b>\n%b";
@@ -17,7 +19,7 @@
       icon_position = "left";
       max_icon_size = 48;
       frame_color ="#2c3e50";
-      frame_width = 3;
+      frame_width = 2;
     };
     urgency_low = {
       background = "#eaeaea";
@@ -26,8 +28,8 @@
       icon = "";
     };
     urgency_normal = {
-      background = "#bdc3c7";
-      foreground = "#2c3e50";
+      background = "#2d3436";
+      foreground = "#dfe6e9";
       timeout = 5;
       icon = "";
     };
