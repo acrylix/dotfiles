@@ -13,8 +13,14 @@
 
   nixpkgs.config.allowUnfree = true;
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    plymouth.enable = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
   
   # hardware?
   hardware.enableAllFirmware = true;  
@@ -30,6 +36,8 @@
   # Define your hostname.
   networking.hostName = "mx1"; 
   networking.networkmanager.enable = true;
+  programs.nm-applet.enable = true;
+
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -60,8 +68,6 @@
 
     gnome3.nautilus
   ];
-
-   
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -134,7 +140,7 @@
     };
 
     desktopManager = {
-      default = "none+i3";
+      default = "none";
       xterm.enable = false;
       gnome3.enable = true;
     };
