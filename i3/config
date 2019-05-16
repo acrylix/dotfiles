@@ -236,9 +236,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Paths
+set $wallpapers ~/Pictures/wal/cyberpunk/
+
 # Thinkpad Extras
 
-bindsym XF86Tools exec --no-startup-id wal --iterative -i ~/Pictures/wal/cyberpunk/ # && i3-msg restart
+bindsym XF86Tools exec --no-startup-id wal --iterative -i $wallpapers # && i3-msg restart
 bindsym XF86Display exec --no-startup-id i3-msg restart
 
 ## Volume Control
@@ -276,15 +279,12 @@ for_window[class="dropdown"] border pixel 2
 bindsym $mod+u [class="dropdown"] scratchpad show, [class="dropdown"] move position center
 exec --no-startup-id kitty --class dropdown -o font_size=13
 
-# code on big screen
+# push workspace to external monitor
 workspace $ws10 output DP-1
 workspace $ws9 output DP-1
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Status bar
 bar {
-  #status_command i3status
-
   font pango:Hack 9
   status_command ~/.config/i3/bumblebee-status/bumblebee-status -m \
     spotify \
@@ -292,9 +292,11 @@ bar {
     cpu \
     sensors2  \
     disk  \
-    nic \
     brightness  \
     amixer  \
+    spacer \
+    nic \
+    spacer \
     date  \
     time  \
     battery \
@@ -328,3 +330,4 @@ bar {
 }
 
 exec --no-startup-id srandrd autorandr -c
+exec --no-startup-id wal -i $wallpapers 

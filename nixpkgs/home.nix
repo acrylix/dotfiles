@@ -31,7 +31,8 @@ in
     srandrd
     powertop
     lsof
-    
+    gparted
+
     # rice
     lxappearance
     deepin.deepin-gtk-theme
