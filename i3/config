@@ -285,8 +285,8 @@ bindsym $mod+u [class="dropdown"] scratchpad show, [class="dropdown"] move posit
 exec --no-startup-id kitty --class dropdown -o font_size=13
 
 # push workspace to external monitor
-workspace $ws10 output DP-1
-workspace $ws9 output DP-1
+workspace $ws10 output DP1
+workspace $ws9 output DP1
 
 # Status bar
 bar {

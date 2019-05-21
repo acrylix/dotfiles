@@ -133,6 +133,11 @@
     # CapsLock = Ctrl
     # [Super] [Alt] [Ctrl]
     xkbOptions = "ctrl:swap_lalt_lctl_lwin, ctrl:nocaps";
+
+    videoDrivers = [ "intel" ];
+    deviceSection = ''
+      Option "TearFree" "true"
+    '';
     
     displayManager.gdm = {
       enable = true;
