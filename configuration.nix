@@ -31,7 +31,13 @@
   ";
   
   # battery saver auto tune
-  powerManagement.powertop.enable = true;
+  # powerManagement.powertop.enable = true;
+
+  services.tlp.enable = true;
+  services.tlp.extraConfig = ''
+    CPU_SCALING_GOVERNOR_ON_AC=performance
+    CPU_SCALING_GOVERNOR_ON_BAT=powersave
+  '';
 
   # Define your hostname.
   networking.hostName = "mx1"; 

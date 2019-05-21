@@ -209,8 +209,15 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# MODES
+set $tint ~/.config/i3/mode-tint
+set $mod_def mode default; exec --no-startup-id ~/.config/i3/mode-tint/tint.sh off
+set $exec_red_screen exec --no-startup-id  ~/.config/i3/mode-tint/tint.sh on
+
+set $mode_resize "RESIZE MODE "
+bindsym $mod+r mode $mode_resize; $exec_red_screen
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode $mode_resize {
   # These bindings trigger as soon as you enter the resize mode
 
   # Pressing left will shrink the window’s width.
@@ -229,12 +236,10 @@ mode "resize" {
   bindsym Right resize grow width 50 px or 10 ppt
 
   # back to normal: Enter or Escape or $mod+r
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym $mod+r mode "default"
+  bindsym Return $mod_def
+  bindsym Escape $mod_def
+  bindsym $mod+r $mod_def
 }
-
-bindsym $mod+r mode "resize"
 
 # Paths
 set $wallpapers ~/Pictures/wal/cyberpunk/

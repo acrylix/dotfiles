@@ -15,7 +15,7 @@ in
     # system
     gcc
     acpi
-    rofi
+    # rofi
     
     (dunst.override {
       dunstify = true;
@@ -67,6 +67,7 @@ in
     cava
     simplescreenrecorder
     krita
+    graphviz
     
     # applications
     gnome3.dconf-editor
@@ -80,8 +81,14 @@ in
     speedtest-cli
     insomnia
     spotify
+    brave
     playerctl
   ];
+
+  programs.rofi = {
+    enable = true;
+    theme = "~/.config/rofii/theme.rasi";
+  };
 
   services.blueman-applet ={
     enable = true;
