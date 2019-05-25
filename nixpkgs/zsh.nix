@@ -11,6 +11,7 @@
     shellAliases={
         open = "xdg-open";
         chrome = "google-chrome-stable";
+        google-chrome = "chrome";
         conf = "code ~/.config/nixpkgs/";
         d = "ddgr -n 5";
         define = "d -n 1 define";

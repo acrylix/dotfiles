@@ -61,7 +61,7 @@ set_from_resource   $color15      color15
 client.background $background
 
 # class                 border      backgr.     text        indic.    child_border
-client.focused          $foreground $background $foreground #f0932b   #f0932b 
+client.focused          $foreground $background $foreground #B8F5CD   #B8F5CD
 client.unfocused        $foreground $background $foreground #2f3640   #2f3640
 client.focused_inactive $foreground $background $foreground #2f3640   #2f3640
 client.urgent           $foreground $background $foreground $color4   $color4
@@ -91,7 +91,7 @@ for_window [class="FloatingTerm"] floating enable, resize set 800 600, move posi
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec google-chrome-stable
 bindsym $mod2+Return exec kitty
-bindsym $mod2+Shift+Return exec google-chrome-stable
+bindsym $mod2+Shift+Return exec env GTK_THEME=Breeze firefox 
 
 bindsym $mod2+Mod1+Return exec kitty --class FloatingTerm
 
@@ -207,7 +207,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end your X session bro.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # MODES
 set $tint ~/.config/i3/mode-tint
@@ -246,7 +246,8 @@ set $wallpapers ~/Pictures/wal/cyberpunk/
 
 # Thinkpad Extras
 
-bindsym XF86Tools exec --no-startup-id wal --iterative -i $wallpapers # && i3-msg restart
+bindsym XF86Tools exec --no-startup-id ls ~/Pictures/wal/cyberpunk | rofi -dmenu |  xargs -r -t -i wal -i ~/Pictures/wal/cyberpunk/{}
+bindsym $mod+XF86Tools exec --no-startup-id wal --iterative -i $wallpapers # && i3-msg restart
 bindsym XF86Display exec --no-startup-id i3-msg restart
 
 ## Volume Control
@@ -297,16 +298,16 @@ bar {
     cpu \
     sensors2  \
     disk  \
-    brightness  \
+    spacer \
     amixer  \
-    spacer \
     nic \
-    spacer \
+    weather \
     date  \
     time  \
     battery \
     -p \
-    sensors2.showcpu="false" \
+    sensors2.showcpu="true" \
+    weather.showcity="false" \
     battery.warning="50" \
     battery.critical="30" \
     memory.critical="80" \
