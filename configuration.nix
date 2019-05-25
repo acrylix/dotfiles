@@ -14,6 +14,7 @@
   nixpkgs.config.allowUnfree = true;
   # Use the systemd-boot EFI boot loader.
   boot = {
+    blacklistedKernelModules = [ "mei_me" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -35,7 +36,7 @@
 
   services.tlp.enable = true;
   services.tlp.extraConfig = ''
-    CPU_SCALING_GOVERNOR_ON_AC=performance
+    CPU_SCALING_GOVERNOR_ON_AC=powersave
     CPU_SCALING_GOVERNOR_ON_BAT=powersave
   '';
 
@@ -119,12 +120,14 @@
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
+  fonts.fontconfig.dpi = 140;
+
   services.xserver = {
     enable = true;
-    dpi = 160;
+    dpi = 140;
     libinput = {
       enable = true;
-      accelSpeed = "2";
+      disableWhileTyping = true;
     };
     # CapsLock = Ctrl
     # swap left Alt <--> left Super
@@ -155,8 +158,6 @@
       package = pkgs.i3-gaps;
     };
   };
-
-  fonts.fontconfig.dpi = 160;
 
   fonts.fonts = with pkgs; [
     noto-fonts
