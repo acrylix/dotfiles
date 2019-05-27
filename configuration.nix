@@ -16,6 +16,13 @@
   boot = {
     blacklistedKernelModules = [ "mei_me" ];
     loader = {
+      grub = {
+        enable = true;
+        version = 2;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+      };
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
