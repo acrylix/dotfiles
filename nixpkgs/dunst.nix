@@ -4,12 +4,13 @@
   enable = true;
   settings = {
     global = {
-      geometry = "500x80-20+20";
+      geometry = "500x80-30+30";
       transparency = 50;
       separator_height = 0;
       separator_color = "auto";
       notification_height = 20;
       padding = 30;
+      corner_radius = 10;
       horizontal_padding = 20;
       font = "Fira Code 10";
       format = "<b>%s</b>\n%b";
@@ -17,19 +18,19 @@
       markup = "full";
 
       icon_position = "left";
-      max_icon_size = 48;
-      frame_color ="#2c3e50";
+      max_icon_size = 60;
+      frame_color ="#B8F5CD";
       frame_width = 2;
     };
     urgency_low = {
-      background = "#eaeaea";
-      foreground = "#202020";
+      background = "#2d3436";
+      foreground = "#B8F5CD";
       timeout = 5;
       icon = "";
     };
     urgency_normal = {
       background = "#2d3436";
-      foreground = "#dfe6e9";
+      foreground = "#B8F5CD";
       timeout = 5;
       icon = "";
     };
