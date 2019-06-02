@@ -26,7 +26,7 @@ font pango:monospace 8
 
 for_window [class="^.*"] border pixel 3
 gaps inner 10
-smart_gaps on
+# smart_gaps on
 smart_borders on
 
 bindsym $mod+plus gaps inner current minus 5
@@ -88,10 +88,14 @@ for_window [title="^DevTools.*$"] floating disable
 # start a terminal
 for_window [class="FloatingTerm"] floating enable, resize set 800 600, move position center
 
+set $term alacritty
+
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return exec google-chrome-stable
-bindsym $mod2+Return exec kitty
-bindsym $mod2+Shift+Return exec env GTK_THEME=Breeze firefox 
+bindsym $mod2+Return exec $term
+bindsym $mod2+Shift+Return exec firefox 
+
+bindsym $mod2+Shift+p exec $term --working-directory "$(xcwd)"
 
 bindsym $mod2+Mod1+Return exec kitty --class FloatingTerm
 
@@ -99,8 +103,10 @@ bindsym $mod2+Mod1+Return exec kitty --class FloatingTerm
 bindsym $mod2+q [con_id="__focused__" class="^(?!dropdown|repl).*$"] kill
 bindsym $mod+q [con_id="__focused__" class="^(?!dropdown|repl).*$"] kill
 
-# start rofi (a program launcher)
-bindsym Mod1+space exec --no-startup-id rofi -show run
+# start rofi
+# something funky with path here ...
+        
+bindsym $mod+space exec --no-startup-id export PATH="$PATH:/home/michael/.config/scripts" && rofi -show run
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 #   i
@@ -210,9 +216,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'This will end your X session bro.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # MODES
-set $tint ~/.config/i3/mode-tint
-set $mod_def mode default; exec --no-startup-id ~/.config/i3/mode-tint/tint.sh off
-set $exec_red_screen exec --no-startup-id  ~/.config/i3/mode-tint/tint.sh on
+set $mod_def mode default; exec --no-startup-id ~/.config/i3/mode-tint/tint off
+set $exec_red_screen exec --no-startup-id  ~/.config/i3/mode-tint/tint on
 
 set $mode_resize "RESIZE MODE "
 bindsym $mod+r mode $mode_resize; $exec_red_screen
@@ -282,8 +287,9 @@ for_window[class="dropdown"] floating enable
 for_window[class="dropdown"] resize set 1200 600
 for_window[class="dropdown"] move scratchpad
 for_window[class="dropdown"] border pixel 2
+
 bindsym $mod+u [class="dropdown"] scratchpad show, [class="dropdown"] move position center
-exec --no-startup-id kitty --class dropdown -o font_size=13
+exec --no-startup-id kitty --class dropdown
 
 # push workspace to external monitor
 workspace $ws10 output DP1

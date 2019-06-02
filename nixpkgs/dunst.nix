@@ -5,7 +5,7 @@
   settings = {
     global = {
       geometry = "500x80-30+30";
-      transparency = 50;
+      transparency = 20;
       separator_height = 0;
       separator_color = "auto";
       notification_height = 20;

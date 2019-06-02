@@ -15,7 +15,6 @@ in
     # system
     gcc
     acpi
-    # rofi
     
     (dunst.override {
       dunstify = true;
@@ -32,15 +31,20 @@ in
     powertop
     lsof
     gparted
+    alacritty
 
     # rice
     lxappearance
     deepin.deepin-gtk-theme
+    arc-icon-theme
+    mojave-gtk-theme
     breeze-gtk
     capitaine-cursors
     powerline-fonts
     cool-retro-term
     pywal
+    bibata-cursors
+    oneko
 
     # tools
     appimage-run
@@ -59,6 +63,7 @@ in
     imagemagick
     ranger
     docker
+    xcwd
 
     # image/audio/video
     scrot
@@ -83,6 +88,7 @@ in
     spotify
     brave
     playerctl
+    awscli
   ];
 
   programs.rofi = {
