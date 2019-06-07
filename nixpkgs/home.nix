@@ -72,7 +72,6 @@ in
     cava
     simplescreenrecorder
     krita
-    graphviz
     
     # applications
     gnome3.dconf-editor

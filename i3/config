@@ -80,10 +80,9 @@ floating_modifier $mod
 # chrome urgent autofocus
 focus_on_window_activation focus
 
-# automatically flow these windows
-for_window [window_role="pop-up|menu|dialog"] floating enable border pixel 1, move position center
-
-for_window [title="^DevTools.*$"] floating disable
+# automatically flow these windows (chrome)
+# for_window [window_role="pop-up|menu|dialog"] floating enable border pixel 1, move position center
+# for_window [title="^DevTools.*$"] floating disable
 
 # start a terminal
 for_window [class="FloatingTerm"] floating enable, resize set 800 600, move position center
@@ -95,7 +94,7 @@ bindsym $mod+Shift+Return exec google-chrome-stable
 bindsym $mod2+Return exec $term
 bindsym $mod2+Shift+Return exec firefox 
 
-bindsym $mod2+Shift+p exec $term --working-directory "$(xcwd)"
+bindsym $mod2+backslash exec $term --working-directory "$(xcwd)"
 
 bindsym $mod2+Mod1+Return exec kitty --class FloatingTerm
 
