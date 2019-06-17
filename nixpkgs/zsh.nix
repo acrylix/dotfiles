@@ -22,7 +22,9 @@
 
         ####path####
         export GOPATH="/home/michael/go"
-        export PATH="$PATH:/home/michael/go/bin"
+        export SCRIPTPATH="/home/michael/.config/scripts"
+        
+        export PATH="$PATH:$SCRIPTPATH:/home/michael/go/bin"
 
         ####prompt####
         SPACESHIP_DIR_TRUNC=2
