@@ -12,9 +12,10 @@
     ];
 
   nixpkgs.config.allowUnfree = true;
+
   # Use the systemd-boot EFI boot loader.
   boot = {
-    blacklistedKernelModules = [ "mei_me" ];
+    # blacklistedKernelModules = [ "mei_me" ];
     loader = {
       grub = {
         enable = true;
@@ -29,8 +30,32 @@
     plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
+
+  # Fix instant wakeup after suspend due to XHC events 
+  systemd.services.disable-xhci-wakeup = {
+    description = "Disables XHCI wakeup for S3 sleep support.";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig.type = "oneshot";
+    script = ''
+      if ${pkgs.gnugrep}/bin/grep -q 'XHC.*enabled' /proc/acpi/wakeup; then
+        echo XHC > /proc/acpi/wakeup
+      fi
+    '';
+  };
+
+  # # does this fix airpod volume issue?
+  # systemd.services."dbus-org.bluez" = {
+  #     description = "Bluetooth Service";
+  #     serviceConfig = {
+  #       Type = "dbus";
+  #       BusName = "org.bluez";
+  #       ExecStart = "${pkgs.bluez}/sbin/bluetoothd --noplugin=avrcp";
+  #     };
+  #     wantedBy = [ "bluetooth.target" ];
+  # };
   
-  # hardware?
+  # hardware
   hardware.enableAllFirmware = true;  
   hardware.bluetooth.enable = true;
   hardware.bluetooth.extraConfig = "
@@ -190,7 +215,7 @@
     description = "Michael Yu";
     uid = 1000;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video" "docker"];
+    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video" "audio" "docker"];
   };
 
   # This value determines the NixOS release with which your system is to be
