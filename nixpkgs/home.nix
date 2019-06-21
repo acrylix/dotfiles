@@ -40,11 +40,11 @@ in
     mojave-gtk-theme
     breeze-gtk
     capitaine-cursors
+    numix-cursor-theme
     powerline-fonts
     cool-retro-term
-    pywal
     bibata-cursors
-    oneko
+    pywal
 
     # tools
     appimage-run
@@ -64,6 +64,13 @@ in
     ranger
     docker
     xcwd
+    bat
+    xzoom
+    docker-compose
+
+    consul
+    vault
+    traefik
 
     # image/audio/video
     scrot
@@ -88,14 +95,30 @@ in
     brave
     playerctl
     awscli
+    filezilla
+    zoom-us
   ];
+
+  # services.xsuspender = {
+  #   enable = true;
+  #   defaults = {
+  #     matchWmClassContains = "Code";
+  #   };
+  #   rules = {
+  #     defaults = {
+  #       matchWmClassContains = "Code";
+  #       execResume = "notify-send 'resuming..'";
+  #       execSuspend = "notify-send 'suspending..'";
+  #     };
+  #   };
+  # };
 
   programs.rofi = {
     enable = true;
     theme = "~/.config/rofii/theme.rasi";
   };
 
-  services.blueman-applet ={
+  services.blueman-applet = {
     enable = true;
   };
 

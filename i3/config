@@ -293,10 +293,11 @@ exec --no-startup-id kitty --class dropdown
 # push workspace to external monitor
 workspace $ws10 output DP1
 workspace $ws9 output DP1
+workspace $ws8 output DP1
 
 # Status bar
 bar {
-  font pango:Hack 9
+  font pango:Hack 8
   status_command ~/.config/i3/bumblebee-status/bumblebee-status -m \
     spotify \
     memory \
