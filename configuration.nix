@@ -43,17 +43,6 @@
       fi
     '';
   };
-
-  # # does this fix airpod volume issue?
-  # systemd.services."dbus-org.bluez" = {
-  #     description = "Bluetooth Service";
-  #     serviceConfig = {
-  #       Type = "dbus";
-  #       BusName = "org.bluez";
-  #       ExecStart = "${pkgs.bluez}/sbin/bluetoothd --noplugin=avrcp";
-  #     };
-  #     wantedBy = [ "bluetooth.target" ];
-  # };
   
   # hardware
   hardware.enableAllFirmware = true;  
