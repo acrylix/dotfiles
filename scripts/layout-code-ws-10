@@ -1,0 +1,8 @@
+i3-msg "workspace "10 "; append_layout /home/michael/.config/i3/workspaces/code.json"
+
+zsh
+
+skyDir=/home/michael/Documents/Projects/horizon-games/SkyWeaver
+
+alacritty --working-directory $skyDir
+

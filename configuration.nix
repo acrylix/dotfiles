@@ -43,9 +43,16 @@
       fi
     '';
   };
+
+  # https://wiki.archlinux.org/index.php/Bluetooth_headset#Apple_Airpods_have_low_volume
+  systemd.services.bluetooth.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
+  ];
   
   # hardware
   hardware.enableAllFirmware = true;  
+  hardware.enableRedistributableFirmware = true; # Might help wifi?
   hardware.bluetooth.enable = true;
   hardware.bluetooth.extraConfig = "
     [General]

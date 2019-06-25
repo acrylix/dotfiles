@@ -1,0 +1,1 @@
+notify-send "Going to Sleep ..." -i ~/temp/suspend-coffee.png && ~/.config/scripts/lock-black.sh && systemctl suspend 

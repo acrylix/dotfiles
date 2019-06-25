@@ -67,6 +67,7 @@ in
     bat
     xzoom
     docker-compose
+    cloc
 
     consul
     vault
