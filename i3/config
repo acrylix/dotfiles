@@ -278,7 +278,7 @@ bindsym Print exec --no-startup-id screengrab -r
 
 bindsym $mod+Delete exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod2+Delete exec --no-startup-id ~/.config/scripts/lock-black.sh
-bindsym $mod2+Escape exec --no-startup-id ~/.config/scripts/suspend-sleep
+bindsym $mod2+Shift+Escape exec --no-startup-id ~/.config/scripts/suspend-sleep
 
 bindsym $mod+m bar mode toggle
 

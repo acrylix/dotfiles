@@ -68,6 +68,7 @@ in
     xzoom
     docker-compose
     cloc
+    unzip
 
     consul
     vault
