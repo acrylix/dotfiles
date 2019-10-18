@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -45,10 +45,10 @@
   };
 
   # https://wiki.archlinux.org/index.php/Bluetooth_headset#Apple_Airpods_have_low_volume
-  systemd.services.bluetooth.serviceConfig.ExecStart = [
-    ""
-    "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
-  ];
+  # systemd.services.bluetooth.serviceConfig.ExecStart = [
+  #   ""
+  #   "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
+  # ];
   
   # hardware
   hardware.enableAllFirmware = true;  
@@ -63,16 +63,30 @@
   # powerManagement.powertop.enable = true;
 
   services.tlp.enable = true;
+  # services.tlp.extraConfig = ''
+  #   CPU_SCALING_GOVERNOR_ON_AC=powersave
+  #   CPU_SCALING_GOVERNOR_ON_BAT=powersave
+  # '';
+
   services.tlp.extraConfig = ''
     CPU_SCALING_GOVERNOR_ON_AC=powersave
     CPU_SCALING_GOVERNOR_ON_BAT=powersave
+    CPU_HWP_ON_AC=balance_performance
+    CPU_HWP_ON_BAT=balance_power
+    SCHED_POWERSAVE_ON_AC=1
+    SCHED_POWERSAVE_ON_BAT=1
+    ENERGY_PERF_POLICY_ON_AC=balance-performance
+    ENERGY_PERF_POLICY_ON_BAT=balance-power
   '';
+  
+  # Disable the "throttling bug fix" -_- https://github.com/NixOS/nixos-hardware/blob/master/common/pc/laptop/cpu-throttling-bug.nix
+  systemd.timers.cpu-throttling.enable = lib.mkForce false;
+  systemd.services.cpu-throttling.enable = lib.mkForce false;
 
   # Define your hostname.
   networking.hostName = "mx1"; 
   networking.networkmanager.enable = true;
-  programs.nm-applet.enable = true;
-
+  # programs.nm-applet.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

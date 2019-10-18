@@ -69,10 +69,7 @@ in
     docker-compose
     cloc
     unzip
-
-    consul
-    vault
-    traefik
+    heroku
 
     # image/audio/video
     scrot
@@ -85,7 +82,9 @@ in
     # applications
     gnome3.dconf-editor
     gnome3.gnome-screenshot	
-    lxqt.screengrab
+    # lxqt.screengrab
+    # qscreenshot
+
     libreoffice
     tdesktop
     discord
@@ -98,29 +97,20 @@ in
     playerctl
     awscli
     filezilla
-    zoom-us
+    openvpn
+    iptables
   ];
-
-  # services.xsuspender = {
-  #   enable = true;
-  #   defaults = {
-  #     matchWmClassContains = "Code";
-  #   };
-  #   rules = {
-  #     defaults = {
-  #       matchWmClassContains = "Code";
-  #       execResume = "notify-send 'resuming..'";
-  #       execSuspend = "notify-send 'suspending..'";
-  #     };
-  #   };
-  # };
 
   programs.rofi = {
     enable = true;
-    theme = "~/.config/rofii/theme.rasi";
+    theme = "~/.config/rofii/paper-float.rasi";
   };
 
   services.blueman-applet = {
+    enable = true;
+  };
+
+  services.network-manager-applet = {
     enable = true;
   };
 
@@ -138,6 +128,10 @@ in
     enableZshIntegration = true;
   };
 
+  programs.broot = {
+    enable = true;
+  };
+
   programs.zsh = import ./zsh.nix pkgs;
   services.dunst = import ./dunst.nix pkgs;
   programs.autorandr = import ./autorandr.nix pkgs;
@@ -147,5 +141,8 @@ in
       lfs.enable = true;
       userName = "Michael Yu";
       userEmail = "1619025+acrylix@users.noreply.github.com";
+      extraConfig = {
+        "url \"ssh://git@github.com\"".insteadOf = "https://github.com";
+      };
     };
 }
