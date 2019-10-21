@@ -45,10 +45,10 @@
   };
 
   # https://wiki.archlinux.org/index.php/Bluetooth_headset#Apple_Airpods_have_low_volume
-  # systemd.services.bluetooth.serviceConfig.ExecStart = [
-  #   ""
-  #   "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
-  # ];
+  systemd.services.bluetooth.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
+  ];
   
   # hardware
   hardware.enableAllFirmware = true;  
@@ -58,6 +58,8 @@
     [General]
     Enable=Source,Sink,Media,Socket
   ";
+
+  services.blueman.enable = true;
   
   # battery saver auto tune
   # powerManagement.powertop.enable = true;
@@ -232,5 +234,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 }
