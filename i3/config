@@ -28,6 +28,8 @@ for_window [class="^.*"] border pixel 3
 gaps inner 10
 # smart_gaps on
 smart_borders on
+workspace_auto_back_and_forth yes
+focus_on_window_activation focus
 
 bindsym $mod+plus gaps inner current minus 5
 bindsym $mod+minus  gaps inner current plus 5
@@ -76,9 +78,6 @@ client.placeholder      $foreground $background $foreground $color4   $color4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# chrome urgent autofocus
-focus_on_window_activation focus
 
 # automatically flow these windows (chrome)
 # for_window [window_role="pop-up|menu|dialog"] floating enable border pixel 1, move position center
@@ -270,8 +269,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id light -A 10
 
-# bindsym Print exec --no-startup-id gnome-screenshot -i
-bindsym Print exec --no-startup-id screengrab -r
+bindsym Print exec --no-startup-id flameshot gui
 
 # Lock
 

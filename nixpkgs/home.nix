@@ -106,6 +106,10 @@ in
     theme = "~/.config/rofii/paper-float.rasi";
   };
 
+  services.flameshot = {
+    enable = true;
+  };
+
   services.blueman-applet = {
     enable = true;
   };

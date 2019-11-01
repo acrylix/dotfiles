@@ -158,7 +158,6 @@
   };
   
   virtualisation.docker.enable = true;
-
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
   # services.xserver.layout = "us";
@@ -193,7 +192,7 @@
     desktopManager = {
       default = "none";
       xterm.enable = false;
-      gnome3.enable = true;
+      # gnome3.enable = true;
     };
 
     windowManager.default = "i3";
