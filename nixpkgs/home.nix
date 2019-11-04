@@ -105,7 +105,7 @@ in
 
   programs.rofi = {
     enable = true;
-    theme = "~/.config/rofii/paper-float.rasi";
+    theme = "~/.config/rofii/theme.rasi";
   };
 
   services.flameshot = {
