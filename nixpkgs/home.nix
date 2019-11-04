@@ -99,6 +99,8 @@ in
     filezilla
     openvpn
     iptables
+    conky
+    electron
   ];
 
   programs.rofi = {

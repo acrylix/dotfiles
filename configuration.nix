@@ -51,8 +51,8 @@
   ];
   
   # hardware
-  hardware.enableAllFirmware = true;  
-  hardware.enableRedistributableFirmware = true; # Might help wifi?
+  # hardware.enableAllFirmware = true;  # pulls in mac stuff .. no good
+  # hardware.enableRedistributableFirmware = true; # Might help wifi?
   hardware.bluetooth.enable = true;
   hardware.bluetooth.extraConfig = "
     [General]
@@ -100,7 +100,10 @@
      consoleKeyMap = "us";
      defaultLocale = "en_US.UTF-8";
      # chinese input
-     inputMethod.enabled = "fcitx";
+     inputMethod = {
+       enabled = "fcitx";
+       fcitx.engines = with pkgs.fcitx-engines; [ libpinyin cloudpinyin ];
+     };
    };
 
   # the 6ix.
@@ -228,6 +231,9 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video" "audio" "docker"];
   };
+
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

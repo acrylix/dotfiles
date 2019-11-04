@@ -36,7 +36,7 @@ bindsym $mod+minus  gaps inner current plus 5
 
 #client.focused    #4c7899 #285577 #ffffff #2e9ef4   #e67e22
 
-floating_minimum_size 300 x 300
+floating_minimum_size 50 x 50
 
 # Colors set from ~/.Xresources
 set_from_resource   $background   background
