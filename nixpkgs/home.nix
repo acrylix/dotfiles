@@ -32,6 +32,7 @@ in
     lsof
     gparted
     alacritty
+    tmux
 
     # rice
     lxappearance
@@ -45,6 +46,9 @@ in
     cool-retro-term
     bibata-cursors
     pywal
+    xwinwrap
+    mpv
+    sxiv
 
     # tools
     appimage-run
@@ -70,6 +74,7 @@ in
     cloc
     unzip
     heroku
+    zoom-us
 
     # image/audio/video
     scrot
@@ -136,6 +141,30 @@ in
 
   programs.broot = {
     enable = true;
+  };
+
+  programs.vim = {
+    enable = true;
+    plugins = [ pkgs.vimPlugins.lightline-vim ];
+    extraConfig = ''
+      set nocompatible
+
+      syntax on
+      set number
+      set relativenumber
+      set cursorline
+      set hls
+      set noshowmode
+
+      inoremap jk <esc>
+
+      set tabstop=4
+      set expandtab
+
+      let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
+    '';
   };
 
   programs.zsh = import ./zsh.nix pkgs;
