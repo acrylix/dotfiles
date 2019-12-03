@@ -19,6 +19,10 @@ in
     (dunst.override {
       dunstify = true;
     })
+
+    (yarn.override {
+      nodejs = nodejs-12_x;
+    })
     
     libnotify
     lm_sensors
@@ -33,6 +37,10 @@ in
     gparted
     alacritty
     tmux
+    udiskie
+    ncat
+    websocat
+    xorg.xdpyinfo
 
     # rice
     lxappearance
@@ -74,7 +82,8 @@ in
     cloc
     unzip
     heroku
-    zoom-us
+    clipit
+    dbeaver
 
     # image/audio/video
     scrot
@@ -87,6 +96,7 @@ in
     # applications
     gnome3.dconf-editor
     gnome3.gnome-screenshot	
+    gnome3.gnome-font-viewer
     # lxqt.screengrab
     # qscreenshot
 
@@ -106,6 +116,7 @@ in
     iptables
     conky
     electron
+    redis
   ];
 
   programs.rofi = {
@@ -117,8 +128,20 @@ in
     enable = true;
   };
 
-  services.blueman-applet = {
+  # services.blueman-applet = {
+  #   enable = true;
+  # };
+
+  services.redshift = {
     enable = true;
+    tray = true;
+    latitude = "43.653225";
+    longitude = "-79.383186";
+    provider = "manual";
+    temperature = {
+      day = 5500;
+      night = 3000;
+    };
   };
 
   services.network-manager-applet = {
