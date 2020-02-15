@@ -2,6 +2,7 @@
 
 let
   srandrd = import ./srandrd;
+  web2nix = import (builtins.fetchTarball https://github.com/gcoakes/web2nix/archive/master.tar.gz);
 in
 {
   programs.home-manager = {
@@ -15,13 +16,16 @@ in
     # system
     gcc
     acpi
+
+    (web2nix { name = "cryptowatch"; url = "https://cryptowat.ch"; })
+    (web2nix { name = "skyweaver"; url = "https://beta.skyweaver.net"; })
     
     (dunst.override {
       dunstify = true;
     })
 
     (yarn.override {
-      nodejs = nodejs-12_x;
+      nodejs = nodejs_latest;
     })
     
     libnotify
@@ -41,6 +45,8 @@ in
     ncat
     websocat
     xorg.xdpyinfo
+    xidlehook
+    dmidecode
 
     # rice
     lxappearance
@@ -84,6 +90,8 @@ in
     heroku
     clipit
     dbeaver
+    ctodo
+    usbutils
 
     # image/audio/video
     scrot
@@ -91,7 +99,6 @@ in
     vlc
     cava
     simplescreenrecorder
-    krita
     
     # applications
     gnome3.dconf-editor
@@ -100,6 +107,7 @@ in
     # lxqt.screengrab
     # qscreenshot
 
+    xdotool
     libreoffice
     tdesktop
     discord
@@ -117,6 +125,9 @@ in
     conky
     electron
     redis
+    drone-cli
+    zoom-us
+    bats
   ];
 
   programs.rofi = {
