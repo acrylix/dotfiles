@@ -45,7 +45,7 @@
   };
 
   # https://wiki.archlinux.org/index.php/Bluetooth_headset#Apple_Airpods_have_low_volume
-  systemd.services.bluetooth.serviceConfig.ExecStart = [
+  systemd.user.services.bluetooth.serviceConfig."ExecStart" = [
     ""
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
   ];
@@ -54,10 +54,17 @@
   # hardware.enableAllFirmware = true;  # pulls in mac stuff .. no good
   # hardware.enableRedistributableFirmware = true; # Might help wifi?
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.extraConfig = "
-    [General]
-    Enable=Source,Sink,Media,Socket
-  ";
+
+  # hardware.bluetooth.extraConfig = "
+  #  [General]
+  #  Enable=Source,Sink,Media,Socket
+  # ";
+
+  hardware.bluetooth.config = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
 
   services.blueman.enable = true;
   
@@ -123,6 +130,8 @@
     gnome3.nautilus
   ];
 
+  services.fwupd.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -166,11 +175,13 @@
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
 
+  # This is Xft.dpi in .Xresources, 140 = 210 / 1.5
   fonts.fontconfig.dpi = 140;
 
   services.xserver = {
     enable = true;
-    dpi = 140;
+    # 210 is the native DPI of the HDR screen
+    dpi = 210;
     libinput = {
       enable = true;
       disableWhileTyping = true;
