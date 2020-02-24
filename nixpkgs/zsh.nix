@@ -63,7 +63,8 @@
         ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
         ZSH_HIGHLIGHT_STYLES[command]='fg=magenta,bold'
         ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
-        ZSH_HIGHLIGHT_STYLES[unknown-token]='bg=red,bold'
+        ZSH_HIGHLIGHT_STYLES[unknown-token]='bg=red,fg=white,bold'
+        ZSH_HIGHLIGHT_STYLES[path]='fg=green,underline'
 
         typeset -A ZSH_HIGHLIGHT_PATTERNS
         ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red
