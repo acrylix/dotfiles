@@ -63,6 +63,7 @@ in
     xwinwrap
     mpv
     sxiv
+    jgmenu
 
     # tools
     appimage-run
@@ -128,6 +129,7 @@ in
     drone-cli
     zoom-us
     bats
+    steam-run
   ];
 
   programs.rofi = {
@@ -199,6 +201,34 @@ in
       \ 'colorscheme': 'seoul256',
       \ }
     '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    settings = {
+      character = {
+        symbol = "•";
+      };
+
+      git_status = {
+        prefix = "";
+        suffix = "";
+        modified_count.enabled = true;
+        modified_count.style = "bold dimmed purple";
+      };
+      
+      prompt_order = [
+        "directory"
+        "git_branch"
+        "git_commit"
+        "git_state"
+        "git_status"
+        "line_break"
+        "character"
+      ];
+    };
   };
 
   programs.zsh = import ./zsh.nix pkgs;

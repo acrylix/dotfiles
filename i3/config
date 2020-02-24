@@ -252,6 +252,8 @@ bindsym XF86Tools exec --no-startup-id ls ~/Pictures/wal/cyberpunk | rofi -dmenu
 bindsym $mod+XF86Tools exec --no-startup-id wal -i $wallpapers # && i3-msg restart
 bindsym XF86Display exec --no-startup-id i3-msg restart
 
+bindsym XF86Favorites exec --no-startup-id jgmenu
+
 ## Volume Control
 set $volumepath ~/.config/i3/i3-volume
 set $volumestep 5
@@ -355,6 +357,8 @@ bar {
      inactive_workspace  $background $background $foreground
      urgent_workspace    #ff6b81 #000000 #ff6b81
    }
+
+  bindsym button3 exec --no-startup-id jgmenu
 }
 
 exec --no-startup-id srandrd autorandr -c

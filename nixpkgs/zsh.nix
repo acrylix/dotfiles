@@ -20,6 +20,8 @@
     initExtra = ''
         (cat ~/.cache/wal/sequences &)
 
+        xset r rate 230 30
+
         ####path####
         export GOPATH="/home/michael/go"
         export SCRIPTPATH="/home/michael/.config/scripts"
@@ -53,26 +55,19 @@
         alias glg='git log --date-order --all --graph --format=$format';
 
         alias glg2='git log --date-order --all --graph --stat --format=$format';
+
+
+        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+        typeset -A ZSH_HIGHLIGHT_STYLES
+        ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
+        ZSH_HIGHLIGHT_STYLES[command]='fg=magenta,bold'
+        ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
+        ZSH_HIGHLIGHT_STYLES[unknown-token]='bg=red,bold'
+
+        typeset -A ZSH_HIGHLIGHT_PATTERNS
+        ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red
+
+        . ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     '';
-    plugins = [
-        {
-        name = "spaceship-prompt";
-        src = pkgs.fetchFromGitHub {
-            owner = "denysdovhan";
-            repo = "spaceship-prompt";
-            rev = "v3.10.0";
-            sha256 = "03rjc3y24sz97x1fi6g66ky0pgw2q6z5r33vaprvnd2axay8pbdz";
-        };
-        file = "spaceship.zsh";
-        }
-        {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-syntax-highlighting";
-            rev = "2f3b98ff6f94ed1b205e8c47d4dc54e6097eacf4";
-            sha256 = "1lyas0ql3v5yx6lmy8qz13zks6787imdffqnrgrpfx8h69ylkv71";
-        };
-        }
-    ];
 }
