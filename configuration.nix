@@ -27,7 +27,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    plymouth.enable = true;
+    # plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -101,10 +101,14 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  console = {
+    keyMap = "us";
+    font = "Lat2-Terminus16";
+  };
   # Select internationalisation properties.
   i18n = {
-     consoleFont = "Lat2-Terminus16";
-     consoleKeyMap = "us";
+    #  consoleFont = "Lat2-Terminus16";
+    #  consoleKeyMap = "us";
      defaultLocale = "en_US.UTF-8";
      # chinese input
      inputMethod = {
@@ -198,18 +202,18 @@
     deviceSection = ''
       Option "TearFree" "true"
     '';
+
+    displayManager.defaultSession = "none+i3";
     
     displayManager.gdm = {
       enable = true;
     };
 
     desktopManager = {
-      default = "none";
       xterm.enable = false;
       # gnome3.enable = true;
     };
 
-    windowManager.default = "i3";
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;

@@ -1,10 +1,10 @@
 if [[ "$@" = "on" ]]; then
   notify-send "Window Resize Mode" -u low -t 1000
  # GAMMA=4:1.5:1
-    GAMMA=1:1.5:1
+    # GAMMA=1:1.5:1
 elif [[ "$@" = "off" ]]; then
   echo Making screen normal
-  GAMMA=1:1:1
+  #GAMMA=1:1:1
 else
   echo Requires one of: "on", "off"
   exit 128

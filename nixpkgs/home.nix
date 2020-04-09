@@ -47,6 +47,7 @@ in
     xorg.xdpyinfo
     xidlehook
     dmidecode
+    fd
 
     # rice
     lxappearance
@@ -59,10 +60,12 @@ in
     powerline-fonts
     cool-retro-term
     bibata-cursors
+    vanilla-dmz
     pywal
     xwinwrap
     mpv
     sxiv
+    siji
     jgmenu
 
     # tools
@@ -90,9 +93,10 @@ in
     unzip
     heroku
     clipit
-    dbeaver
     ctodo
     usbutils
+    trickle
+    darling-dmg
 
     # image/audio/video
     scrot
@@ -111,7 +115,6 @@ in
     xdotool
     libreoffice
     tdesktop
-    discord
     screenkey
     arandr
     speedtest-cli
@@ -130,6 +133,13 @@ in
     zoom-us
     bats
     steam-run
+    hueadm
+    ngrok
+
+    dfilemanager
+    mate.caja
+    xfce.thunar
+    
   ];
 
   programs.rofi = {
@@ -209,7 +219,7 @@ in
     enableBashIntegration = true;
     settings = {
       character = {
-        symbol = "•";
+        symbol = "⇶";
       };
 
       git_status = {

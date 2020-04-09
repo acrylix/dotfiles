@@ -248,8 +248,10 @@ set $wallpapers ~/Pictures/wal/cyberpunk/
 
 # Thinkpad Extras
 
-bindsym XF86Tools exec --no-startup-id ls ~/Pictures/wal/cyberpunk | rofi -dmenu |  xargs -r -t -i wal -i ~/Pictures/wal/cyberpunk/{}
+bindsym XF86Tools exec --no-startup-id ls ~/Pictures/wal/cyberpunk | rofi -dmenu |  xargs -r -t -i wal -q -i ~/Pictures/wal/cyberpunk/{}
 bindsym $mod+XF86Tools exec --no-startup-id wal -i $wallpapers # && i3-msg restart
+bindsym $mod2+Shift+XF86Tools exec --no-startup-id ~/.config/scripts/random-color-theme
+bindsym $mod2+XF86Tools exec --no-startup-id wal --theme | sed -n -e 's/^.*- //p' | rofi -dmenu | xargs -r -t -i wal -q --theme {}
 bindsym XF86Display exec --no-startup-id i3-msg restart
 
 bindsym XF86Favorites exec --no-startup-id jgmenu

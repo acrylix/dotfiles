@@ -21,6 +21,8 @@
         (cat ~/.cache/wal/sequences &)
 
         xset r rate 230 30
+        xset s off
+        xset -dpms
 
         ####path####
         export GOPATH="/home/michael/go"
@@ -48,6 +50,8 @@
         ####alias####
         eval $(thefuck --alias)
 
+        alias ssh='TERM=xterm-256color ssh'
+
         alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME/.config'
 
         format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"
@@ -55,7 +59,6 @@
         alias glg='git log --date-order --all --graph --format=$format';
 
         alias glg2='git log --date-order --all --graph --stat --format=$format';
-
 
         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
