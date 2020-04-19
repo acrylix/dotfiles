@@ -18,11 +18,9 @@
         sw = "/home/michael/Documents/Projects/horizon-games/server-debug.sh";
     };
     initExtra = ''
-        (cat ~/.cache/wal/sequences &)
+        xmodmap ~/.config/.xmodmap
 
-        xset r rate 230 30
-        xset s off
-        xset -dpms
+        (cat ~/.cache/wal/sequences &)
 
         ####path####
         export GOPATH="/home/michael/go"

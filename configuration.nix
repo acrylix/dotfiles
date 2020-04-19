@@ -131,6 +131,9 @@
     kitty
     blueman
 
+    xorg.xmodmap
+    xorg.xev
+
     gnome3.nautilus
   ];
 
@@ -190,12 +193,14 @@
       enable = true;
       disableWhileTyping = true;
     };
-    # CapsLock = Ctrl
-    # swap left Alt <--> left Super
-    # xkbOptions = "ctrl:nocaps, altwin:swap_lalt_lwin";
 
-    # CapsLock = Ctrl
+    # key layout:
+    #
+    # [CapsLock] = [Ctrl]
+    #
     # [Super] [Alt] [Ctrl]
+    #
+    # R_ALT + i j k l = arrow keys
     xkbOptions = "ctrl:swap_lalt_lctl_lwin, ctrl:nocaps";
 
     videoDrivers = [ "intel" ];
@@ -203,10 +208,16 @@
       Option "TearFree" "true"
     '';
 
-    displayManager.defaultSession = "none+i3";
-    
-    displayManager.gdm = {
-      enable = true;
+    displayManager = {
+      defaultSession = "none+i3";
+      gdm = {
+        enable = true;
+      };
+      sessionCommands = ''
+        ${pkgs.xorg.xset}/bin/xset r rate 230 30
+        ${pkgs.xorg.xset}/bin/xset s off
+        ${pkgs.xorg.xset}/bin/xset -dpms
+      '';
     };
 
     desktopManager = {

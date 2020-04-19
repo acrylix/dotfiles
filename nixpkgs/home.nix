@@ -139,7 +139,8 @@ in
     dfilemanager
     mate.caja
     xfce.thunar
-    
+
+    pinta
   ];
 
   programs.rofi = {
