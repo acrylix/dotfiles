@@ -15,7 +15,6 @@
         conf = "code ~/.config/nixpkgs/";
         d = "ddgr -n 5";
         define = "d -n 1 define";
-        sw = "/home/michael/Documents/Projects/horizon-games/server-debug.sh";
     };
     initExtra = ''
         xmodmap ~/.config/.xmodmap
