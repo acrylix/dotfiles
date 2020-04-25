@@ -255,8 +255,10 @@
     description = "Michael Yu";
     uid = 1000;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video" "audio" "docker"];
+    extraGroups = [ "wheel" "networkmanager" "sudoers" "disk" "video" "audio" "docker" "udev"];
   };
+
+  services.udev.packages = [ pkgs.ledger-udev-rules ];
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
