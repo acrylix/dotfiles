@@ -41,7 +41,6 @@ in
     gparted
     alacritty
     tmux
-    udiskie
     ncat
     websocat
     xorg.xdpyinfo
@@ -152,9 +151,12 @@ in
     enable = true;
   };
 
-  # services.blueman-applet = {
-  #   enable = true;
-  # };
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    notify = true;
+    tray = "auto";
+  };
 
   services.redshift = {
     enable = true;
@@ -178,7 +180,6 @@ in
 
   programs.firefox = {
     enable = true;
-    enableIcedTea = true;
   };
   
   programs.fzf = {
