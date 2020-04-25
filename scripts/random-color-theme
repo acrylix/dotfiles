@@ -1,0 +1,2 @@
+THEME=$(wal --theme random | sed -n -e 's/^.*\(Set theme to \)/\1/p')
+notify-send "$THEME"

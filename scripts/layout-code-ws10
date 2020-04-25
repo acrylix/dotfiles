@@ -2,7 +2,11 @@ i3-msg "workspace "10 "; append_layout /home/michael/.config/i3/workspaces/co
 
 zsh
 
+i3-msg 'workspace 9 '
+
 skyDir=/home/michael/Documents/Projects/horizon-games/SkyWeaver
 
-alacritty --working-directory $skyDir
+i3-msg 'exec alacritty --working-directory /home/michael/Documents/Projects/horizon-games/SkyWeaver'
 
+sleep 0.05
+code $skyDir

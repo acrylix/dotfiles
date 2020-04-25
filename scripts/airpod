@@ -1,0 +1,14 @@
+# DEVICE_ID=28:FF:3C:C8:5E:E4 #AirPod Gen 1
+DEVICE_ID=E4:76:84:13:2D:CB #AirPod Pro
+
+if [ $1 = "on" ]; then
+    notify-send "connecting airpod..."
+    bluetoothctl connect $DEVICE_ID
+fi
+
+if [ $1 = "off" ]; then
+    notify-send "disconnecting airpod..."
+    bluetoothctl disconnect $DEVICE_ID
+fi
+
+echo "invalid arguments!"
