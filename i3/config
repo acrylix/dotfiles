@@ -175,6 +175,8 @@ bindsym $mod+0 workspace $ws10
 # switch workspace sequential
 bindsym $mod2+bracketleft workspace prev
 bindsym $mod2+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 
 # move container to neighbours
 bindsym $mod+Shift+bracketleft move container to workspace prev, workspace prev
