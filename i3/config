@@ -63,7 +63,8 @@ set_from_resource   $color15      color15
 client.background $background
 
 # class                 border      backgr.     text        indic.    child_border
-client.focused          $foreground $background $foreground #B8F5CD   #B8F5CD
+# client.focused          $foreground $background $foreground #B8F5CD   #B8F5CD
+client.focused          $foreground $background $foreground $color2   $color2
 client.unfocused        $foreground $background $foreground #2f3640   #2f3640
 client.focused_inactive $foreground $background $foreground #2f3640   #2f3640
 client.urgent           $foreground $background $foreground $color4   $color4

@@ -140,6 +140,7 @@ in
     xfce.thunar
 
     pinta
+    tmate
   ];
 
   programs.rofi = {
