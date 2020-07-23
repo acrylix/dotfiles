@@ -14,7 +14,7 @@ in
 
   home.packages = with pkgs; [
     # system
-    gcc
+    gcc7
     acpi
 
     (web2nix { name = "cryptowatch"; url = "https://cryptowat.ch"; })
@@ -28,6 +28,7 @@ in
       nodejs = nodejs_latest;
     })
     
+    cargo
     libnotify
     lm_sensors
     i3lock-color
@@ -47,6 +48,7 @@ in
     xidlehook
     dmidecode
     fd
+    jq
 
     # rice
     lxappearance
@@ -66,6 +68,7 @@ in
     sxiv
     siji
     jgmenu
+    hardinfo
 
     # tools
     appimage-run
@@ -141,6 +144,15 @@ in
 
     pinta
     tmate
+
+    mattermost-desktop
+
+    nodePackages.lerna
+    nodePackages.live-server
+
+    usb_modeswitch
+
+    toxiproxy
   ];
 
   programs.rofi = {
@@ -242,6 +254,16 @@ in
         "character"
       ];
     };
+  };
+
+  imports = [
+    "${fetchTarball "https://github.com/msteen/nixos-vsliveshare/tarball/master"}/modules/vsliveshare/home.nix"
+  ];
+
+  services.vsliveshare = {
+    enable = true;
+    extensionsDir = "$HOME/.vscode-oss/extensions";
+    nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/61cc1f0dc07c2f786e0acfd07444548486f4153b";
   };
 
   programs.zsh = import ./zsh.nix pkgs;
