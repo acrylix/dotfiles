@@ -15,13 +15,13 @@
           enable = true;
           primary = true;
           mode = "2560x1440";
-          position = "688x2160";
+          position = "0x598";
           rate = "60.01";
         };
         DP1 = {
           enable = true;
           mode = "3840x2160";
-          position = "0x0";
+          position = "2560x0";
           rate = "60.00";
         };
       };
