@@ -16,6 +16,7 @@ in
     # system
     gcc7
     acpi
+    protobuf
 
     (web2nix { name = "cryptowatch"; url = "https://cryptowat.ch"; })
     (web2nix { name = "skyweaver"; url = "https://beta.skyweaver.net"; })
@@ -89,7 +90,6 @@ in
     docker
     xcwd
     bat
-    xzoom
     docker-compose
     cloc
     unzip
@@ -132,7 +132,6 @@ in
     electron
     redis
     drone-cli
-    zoom-us
     bats
     steam-run
     hueadm
@@ -153,6 +152,8 @@ in
     usb_modeswitch
 
     toxiproxy
+    gnome3.pomodoro
+    anki
   ];
 
   programs.rofi = {
