@@ -193,6 +193,9 @@
       enable = true;
       disableWhileTyping = true;
     };
+    # quicker repeat delays
+    autoRepeatDelay = 230;
+    autoRepeatInterval = 30;
 
     # key layout:
     #
