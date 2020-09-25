@@ -44,6 +44,9 @@
                 char          # Prompt character
         )
 
+        ####
+        eval $(dircolors ~/.config/LS_COLORS)
+
         ####alias####
         eval $(thefuck --alias)
 
