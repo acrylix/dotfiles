@@ -18,16 +18,17 @@ in
     acpi
     protobuf
 
-    (web2nix { name = "cryptowatch"; url = "https://cryptowat.ch"; })
-    (web2nix { name = "skyweaver"; url = "https://beta.skyweaver.net"; })
+    (web2nix { name = "notion"; url = "https://www.notion.so"; })
     
     (dunst.override {
       dunstify = true;
     })
 
     (yarn.override {
-      nodejs = nodejs_latest;
+      nodejs = nodejs-12_x;
     })
+
+    python
     
     cargo
     libnotify
@@ -148,13 +149,28 @@ in
 
     nodePackages.lerna
     nodePackages.live-server
+    nodePackages.node-gyp
 
     usb_modeswitch
 
     toxiproxy
     gnome3.pomodoro
     anki
+    # dwm
+
+    s-tui
+    thinkfan
+    xbindkeys
+    gnome3.sushi
+    asciinema
+    pscircle
+    peco
   ];
+
+  programs.dircolors = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.rofi = {
     enable = true;
@@ -186,10 +202,6 @@ in
 
   services.network-manager-applet = {
     enable = true;
-  };
-
-  services.compton = {
-    enable = false;
   };
 
   programs.firefox = {
@@ -270,6 +282,11 @@ in
   programs.zsh = import ./zsh.nix pkgs;
   services.dunst = import ./dunst.nix pkgs;
   programs.autorandr = import ./autorandr.nix pkgs;
+  services.picom = import ./picom.nix { inherit pkgs; };
+  # services.picom = {
+  #   enable = true;
+  #   activeOpacity = "0.8";
+  # };
 
   programs.git = {
       enable = true;
