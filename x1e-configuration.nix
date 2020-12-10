@@ -18,8 +18,8 @@
         buildInputs = with pkgs; [x11 xorg.libX11 xorg.libXinerama];
         src = pkgs.fetchgit {
           url = "https://github.com/acrylix/dwm";
-          rev = "c3f7729dde77e94a300f77408d27442220175971";
-          sha256 = "0gza45zap2zgxrp6ifnhlwv53g7krxgm31psmkcq4907i2v7n4s3";
+          rev = "238f1893f5267e87b766371f1f82762bf266c971";
+          sha256 = "07ck1p0il73gj8a4p0pggaj8na0hsa74pzwy2x1vqmnfwdvddj67";
         };
       });
   };
@@ -166,6 +166,8 @@
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
+  virtualisation.docker.enable = true;
+
   programs.light.enable = true;  
 
   # This is Xft.dpi in .Xresources, 140 = 210 / 1.5
@@ -206,6 +208,11 @@
      };
   };
 
+  services.fprintd = {
+    enable = true;
+    package = pkgs.fprintd-thinkpad;
+  };
+
   # hardware.opengl = {
   #   enable = true;
   #   driSupport = true;
@@ -218,6 +225,7 @@
   # };
 
   fonts.fonts = with pkgs; [
+    # nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -228,6 +236,7 @@
     siji
     font-awesome_5
     unifont
+    fantasque-sans-mono
   ];
 
   environment.variables = {
