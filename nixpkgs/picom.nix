@@ -5,6 +5,12 @@
   backend = "glx";
   vSync = true;
 
+  opacityRule = [
+    "80:class_i ?= 'dwm' && !focused"
+    "80:class_i ?= 'dwmsystray' && !focused"
+    "90:class_i ?= 'Org.gnome.Nautilus'"    
+  ];
+
   extraOptions = ''
     corner-radius = 20.0;
 
@@ -15,7 +21,9 @@
       "class_g = 'dwm'",
       "class_g = 'dwmsystray'",
       "class_g = 'Rofi'",
-      "class_g = 'Dunst'"
+      "class_g = 'Dunst'",
+      "class_g = 'qutebrowser'",
+      "class_g = 'SpeedCrunch'"
     ];
 
     # glx-no-stencil = true;

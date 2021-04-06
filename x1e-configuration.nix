@@ -18,8 +18,8 @@
         buildInputs = with pkgs; [x11 xorg.libX11 xorg.libXinerama];
         src = pkgs.fetchgit {
           url = "https://github.com/acrylix/dwm";
-          rev = "238f1893f5267e87b766371f1f82762bf266c971";
-          sha256 = "07ck1p0il73gj8a4p0pggaj8na0hsa74pzwy2x1vqmnfwdvddj67";
+          rev = "353280af03b36c1d4e2cb1026e1663d023709c2c";
+          sha256 = "1gmdnq9va71ywvy436mcxlvsfkybxjfzmpxpjhybzkjbgxms2xvz";
         };
       });
   };
@@ -90,7 +90,7 @@
     xorg.xev
   
     gnome3.nautilus
-    google-chrome
+    # google-chrome
     st
     dmenu
 
@@ -140,6 +140,7 @@
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd --noplugin=avrcp"
   ];
 
+  services.logind.lidSwitch = "ignore";
 
   # Enable sound.
   sound.enable = true;

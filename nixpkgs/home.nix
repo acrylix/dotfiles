@@ -2,7 +2,6 @@
 
 let
   srandrd = import ./srandrd;
-  web2nix = import (builtins.fetchTarball https://github.com/gcoakes/web2nix/archive/master.tar.gz);
 in
 {
   programs.home-manager = {
@@ -14,11 +13,9 @@ in
 
   home.packages = with pkgs; [
     # system
-    gcc7
+    gcc8
     acpi
     protobuf
-
-    (web2nix { name = "notion"; url = "https://www.notion.so"; })
     
     (dunst.override {
       dunstify = true;
@@ -29,9 +26,13 @@ in
     })
 
     python
+    python3
     
     cargo
     libnotify
+    libusb
+    libwebcam
+
     lm_sensors
     i3lock-color
     i3lock-pixeled
@@ -47,15 +48,36 @@ in
     ncat
     websocat
     xorg.xdpyinfo
+    xorg.xhost
     xidlehook
     dmidecode
     fd
     jq
+    bc
+    ripgrep
+    tree
+    xclip
 
     # rice
     lxappearance
     deepin.deepin-gtk-theme
+
+    maia-icon-theme
+    matcha
+    equilux-theme
+    faba-icon-theme
+    flat-remix-icon-theme
+    hicolor-icon-theme
+    lounge-gtk-theme
     arc-icon-theme
+    adapta-gtk-theme
+    adementary-theme
+    amber-theme
+    arc-icon-theme
+    canta-theme
+    clearlooks-phenix
+    e17gtk
+
     mojave-gtk-theme
     breeze-gtk
     capitaine-cursors
@@ -125,7 +147,6 @@ in
     spotify
     brave
     playerctl
-    awscli
     filezilla
     openvpn
     iptables
@@ -165,6 +186,17 @@ in
     asciinema
     pscircle
     peco
+    qutebrowser
+    speedcrunch
+
+    lazygit
+    lazydocker
+
+    cmake
+    binutils
+    slop
+
+    lguf-brightness
   ];
 
   programs.dircolors = {
