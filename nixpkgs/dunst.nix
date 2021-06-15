@@ -4,8 +4,8 @@
   enable = true;
   settings = {
     global = {
-      geometry = "500x80-30+30";
-      transparency = 20;
+      geometry = "500x80-30+50";
+      transparency = 15;
       separator_height = 0;
       separator_color = "auto";
       notification_height = 20;
@@ -16,9 +16,10 @@
       format = "<b>%s</b>\n%b";
       word_wrap = true;
       markup = "full";
+      follow = "mouse";
 
       icon_position = "left";
-      max_icon_size = 60;
+      max_icon_size = 100;
       frame_color ="#B8F5CD";
       frame_width = 2;
     };

@@ -28,7 +28,7 @@ in
     python
     python3
     
-    cargo
+    rustup
     libnotify
     libusb
     libwebcam
@@ -57,6 +57,7 @@ in
     ripgrep
     tree
     xclip
+    emacs
 
     # rice
     lxappearance
@@ -93,9 +94,12 @@ in
     siji
     jgmenu
     hardinfo
+    exa
 
     # tools
-    appimage-run
+    (appimage-run.override {
+      extraPkgs = pkgs: [ pkgs.xorg.libxshmfence ];
+    })
     psmisc
     neofetch
     git-lfs
@@ -114,6 +118,8 @@ in
     xcwd
     bat
     docker-compose
+    kubernetes
+    minikube
     cloc
     unzip
     heroku
@@ -197,6 +203,7 @@ in
     slop
 
     lguf-brightness
+    rdesktop
   ];
 
   programs.dircolors = {
