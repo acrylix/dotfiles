@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   srandrd = import ./srandrd;
@@ -16,17 +16,19 @@ in
     gcc8
     acpi
     protobuf
-    
-    (dunst.override {
-      dunstify = true;
-    })
+
+    dunst    
+    # (dunst.override {
+    #   dunstify = true;
+    # })
 
     (yarn.override {
-      nodejs = nodejs-12_x;
+      nodejs = null; # nodejs_13-x
     })
 
     python
     python3
+    libudev
     
     rustup
     libnotify
@@ -44,6 +46,7 @@ in
     lsof
     gparted
     alacritty
+    kitty
     tmux
     ncat
     websocat
@@ -61,10 +64,9 @@ in
 
     # rice
     lxappearance
-    deepin.deepin-gtk-theme
 
     maia-icon-theme
-    matcha
+    matcha-gtk-theme
     equilux-theme
     faba-icon-theme
     flat-remix-icon-theme
@@ -128,6 +130,7 @@ in
     usbutils
     trickle
     darling-dmg
+    parallel
 
     # image/audio/video
     scrot
@@ -243,9 +246,9 @@ in
     enable = true;
   };
 
-  programs.firefox = {
-    enable = true;
-  };
+  # programs.firefox = {
+  #   enable = true;
+  # };
   
   programs.fzf = {
     enable = true; 
@@ -286,24 +289,27 @@ in
     enableBashIntegration = true;
     settings = {
       character = {
-        symbol = "⇶";
+        success_symbol = "⇶(bold green)";
+        error_symbol = "⇶(bold red)";
       };
 
-      git_status = {
-        prefix = "";
-        suffix = "";
-        modified_count.enabled = true;
-        modified_count.style = "bold dimmed purple";
+      directory = {
+        truncation_length = 8;
+        truncation_symbol = "…/";
       };
-      
-      prompt_order = [
-        "directory"
-        "git_branch"
-        "git_commit"
-        "git_state"
-        "git_status"
-        "line_break"
-        "character"
+
+      git_branch = {
+        format = "@ [$symbol$branch]($style) ";
+      };
+
+      format = lib.concatStrings [
+        "$directory"
+        "$git_branch"
+        "$git_commit"
+        "$git_state"
+        "$git_status"
+        "$line_break"
+        "$character"
       ];
     };
   };
@@ -322,10 +328,6 @@ in
   services.dunst = import ./dunst.nix pkgs;
   programs.autorandr = import ./autorandr.nix pkgs;
   services.picom = import ./picom.nix { inherit pkgs; };
-  # services.picom = {
-  #   enable = true;
-  #   activeOpacity = "0.8";
-  # };
 
   programs.git = {
       enable = true;

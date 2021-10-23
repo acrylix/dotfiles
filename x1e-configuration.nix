@@ -18,8 +18,8 @@
         buildInputs = with pkgs; [x11 xorg.libX11 xorg.libXinerama];
         src = pkgs.fetchgit {
           url = "https://github.com/acrylix/dwm";
-          rev = "353280af03b36c1d4e2cb1026e1663d023709c2c";
-          sha256 = "1gmdnq9va71ywvy436mcxlvsfkybxjfzmpxpjhybzkjbgxms2xvz";
+          rev = "e0f3a613a366c780427ea6be5ae1895339832916";
+          sha256 = "02nc9z84nra505lfpxjcl1spawmi6s5k3r30vb9rqp0isksg2sa0";
         };
       });
   };
@@ -128,7 +128,7 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  hardware.bluetooth.config = {
+  hardware.bluetooth.settings = {
     General = {
       Enable = "Source,Sink,Media,Socket";
     };
@@ -209,20 +209,15 @@
      };
   };
 
-  services.fprintd = {
-    enable = true;
-    package = pkgs.fprintd-thinkpad;
-  };
+  # services.fprintd = {
+  #   enable = true;
+  #   package = pkgs.fprintd-thinkpad;
+  # };
 
   # hardware.opengl = {
   #   enable = true;
   #   driSupport = true;
   #   driSupport32Bit = true;
-  # };
-
-  # services.dwm-status = {
-  #   enable = true;
-  #   order = ["network" "cpu_load" "battery" "time"];
   # };
 
   fonts.fonts = with pkgs; [
